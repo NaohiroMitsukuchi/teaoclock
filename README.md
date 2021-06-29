@@ -1,24 +1,71 @@
-# README
+# tea o'clock_データベース設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|password|string|null: false|
+|password_confirmation|string|null: false|
+### Association
+- has_many :myteas, dependent: :destroy
 
-Things you may want to cover:
+## MyTeasテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_name|string|null: false|
+|campany|string||
+|origin|references|foreign_key: true|
+|flavor|references|foreign_key: true|
+|time|string|null: false|
+|quantity|string|null: false|
+|temperature|string|null: false|
+|leaf_type|references|null: false|
+|astringency|references|null: false|
+|image_url|string||
+|note|string|null: false|
+|user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :flavor
+- belongs_to :leaftype
+- belongs_to :astringency
+- belongs_to :user
+- belongs_to :origin
 
-* Ruby version
+## Flavorsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+- has_many :myteas
 
-* System dependencies
+## Leaftypesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|type|string|null: false|
+### Association
+- has_many :myteas
 
-* Configuration
+## Astringencyテーブル
+|Column|Type|Options|
+|------|----|-------|
+|degree|string|null: false|
+### Association
+- has_many :myteas
 
-* Database creation
+## Originsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|country|references|null: false|
+|image_url|string||
+### Association
+- has_many :myteas
+- belongs_to :country
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Countriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+- has_many :origins
