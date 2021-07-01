@@ -1,0 +1,55 @@
+@import "../mixin";
+* {
+  box-sizing: border-box;
+  }
+
+  
+.StopWatchArea {
+  
+  background-color: $ivory;
+  .TeaSelectArea {
+    .ConditionSelectArea{
+      &__leaftype{
+        font-size: 100px;
+      }
+    }
+  }
+  .CountDownArea {
+    &__timertext {
+      font-size: 200px;
+      color: $tea_color;
+      text-align: center;
+    }
+  }
+  .ButtonArea {
+    @include flex_box(center, center);
+    &__start {
+      @include button_style;
+      &--icon {
+
+      }
+      &--text {
+      }
+    }
+    &__reset {
+      @include button_style;
+
+      &--icon {
+
+      }
+      &--text {
+        
+      }
+    }
+    &__detail {
+      @include button_style;
+
+      &--icon {
+
+      }
+      &--text {
+        
+      }
+    }
+  }
+}
