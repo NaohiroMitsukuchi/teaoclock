@@ -3,27 +3,25 @@ $(document).on('turbolinks:load', function(){
   const startBtn  = $(".ButtonArea__start");
   const resetBtn  = $(".ButtonArea__reset");
   const detailBtn = $(".ButtonArea__detail");
-  let timerMin    = $('.CountDownArea__timertext--min').text();
+  let timerMin    = $('.CountDownArea__timertext--min');
   let elapsedTime = 0;
   let resetMin    = $('.CountDownArea__timertext--min').text();
   let intervalId; 
 
   // タイマーの書き換えの関数
   const rewiteTimer = (intervalId, elapsedTime) => {
-    timerMin = resetMin - elapsedTime;
-    if (timerMin < 0){
+    remainTime = resetMin - elapsedTime;
+    if (remainTime < 0){
       clearInterval(intervalId);
     }else{
-      $('.CountDownArea__timertext--min').text(timerMin);
+      timerMin.html(remainTime);
     }
   }
 
 // ボタンクリック時の挙動
   // カウントダウン開始
   startBtn.on('click', function(){
-    // $('.CountDownArea__timertext--min').disabled = true;
     if(intervalId == null){
-      // intervalId = 0;
       intervalId = setInterval(() => {
         elapsedTime ++;
         rewiteTimer(intervalId, elapsedTime);
@@ -37,9 +35,9 @@ $(document).on('turbolinks:load', function(){
     clearInterval(intervalId);
     elapsedTime = 0;
     intervalId = null;
-    $('.CountDownArea__timertext--min').text(resetMin);
-
+    timerMin.html(resetMin);
   });
+  
   // 詳細設定
   detailBtn.on('click', function(){
     console.log("detail");
