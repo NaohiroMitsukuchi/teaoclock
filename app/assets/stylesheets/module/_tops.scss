@@ -15,11 +15,10 @@
     }
   }
   .CountDownArea {
-    &__timertext {
-      font-size: 200px;
-      color: $tea_color;
-      text-align: center;
-    }
+    @include flex_box(center, center);
+    font-size: 200px;
+    color: $tea_color;
+    text-align: center;
   }
   .ButtonArea {
     @include flex_box(center, center);

@@ -1,37 +1,49 @@
 $(document).on('turbolinks:load', function(){
 // ボタンを定義
-  const startBtn = $(".ButtonArea__start");
-  const resetBtn = $(".ButtonArea__reset");
+  const startBtn  = $(".ButtonArea__start");
+  const resetBtn  = $(".ButtonArea__reset");
   const detailBtn = $(".ButtonArea__detail");
-  const timer = $('.CountDownArea__timertext').text();
-  
-// 関数定義
-  // カウントダウン関数
-    const countDown = () => {
-      let nowTime = new Date();
-      let nowTimeMin = nowTime.getMinutes(); 
-      let nowTimesec = nowTime.getSeconds(); 
+  let timerMin    = $('.CountDownArea__timertext--min').text();
+  // let timerSec    = $('.CountDownArea__timertext--sec').text();
+  let elapsedTime = 0;
 
-
-      let elapsedTimeMin = nowTimeMin - startTimeMin
-      let elapsedTimeSec = nowTimeSec - startTimeSec
-
-
-      // min = timer.slice(0,1);
-      // sec = timer.slice(2,4);
-      console.log(elapsedTimeMin);
-      console.log(elapsedTimeec);
-      
+  // タイマーの書き換えの関数
+  const rewiteTimer = (elapsedTime) => {
+    timerMin --;
+    if (timerMin < 0){
+      clearInterval(TimerId);
+    }else{
+      $('.CountDownArea__timertext--min').text(timerMin);
     }
+    // if (timerSec - elapsedTime % 60 < 0){
+    //   remainingSec = timerSec - elapsedTime + 60
+    //   $('.CountDownArea__timertext--sec').text(remainingSec);
+    // }else if(timerSec - elapsedTime % 60 === 0){
+    //   remainingMin = timerMin - 1;
+    //   remainingSec = timerSec - elapsedTime
+    //   $('.CountDownArea__timertext--Min').text(remainingMin);
+    //   $('.CountDownArea__timertext--sec').text(`${remainingSec}0`);
+    // }else{
+    //   remainingSec = timerSec - elapsedTime + 60
+    //   $('.CountDownArea__timertext--sec').text(remainingSec);
+    // }
+  }
+  // カウントダウン機能
+  const TimerId = setInterval(() => {
+    elapsedTime ++;
+    rewiteTimer(elapsedTime);
+  }, 1000);
+
 // ボタンクリックの挙動
   // カウントダウン開始
   startBtn.on('click', function(){
-    let startTime = new Date();
-    let startTimeMin = startTime.getMinutes();
-    let startTimeSec = startTime.getSeconds();
+    // let startTime = new Date();
+    // let startTimeMin = startTime.getMinutes();
+    // let startTimeSec = startTime.getSeconds();
 
-    setInterval(() => {
-      countDown(startTimeMin, startTimeSec);
+    const TimerId = setInterval(() => {
+      elapsedTime ++;
+      rewiteTimer(elapsedTime);
     }, 1000);
   });
 
