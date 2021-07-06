@@ -1,4 +1,4 @@
-class TeaType < ApplicationRecord
+class TeaType < ActiveHash::Base
   self.data = [
     {id: 1, type: "ティーバッグ"},
     {id: 2, type: "リーフティー"},
