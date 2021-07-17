@@ -1,5 +1,5 @@
-$tea_color: #EF7F0F;
-$ivory: #FFFFF0;
+$tea_color: rgb(210, 133, 56);
+$ivory: rgb(255, 255, 246);
 
 @mixin flex_box($Justify, $Align){
   display: flex;

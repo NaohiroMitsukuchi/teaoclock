@@ -3,7 +3,101 @@
   box-sizing: border-box;
   }
 
-  
+.TopPage{
+  background-color: $ivory;
+  font-style: oblique;
+  .Header{
+    border-bottom: 3px solid $tea_color;
+    @include w_h(100%, 500px);
+    background-image: image-url('background/background_image.jpg');
+    background-size: cover;
+    .TitleBar{
+      position: fixed;
+      @include flex_box(start, center);
+      &__title{
+        border-top: 3px solid $tea_color;
+        border-bottom: 3px solid $tea_color;
+        background-color: rgba(210, 133, 56, 0.2);
+        @include flex_box(start, center);
+        &--icon{
+          margin: 0 10px;
+        }
+        &--text{
+          font-size: 25px;
+          margin-right: 10px;
+        }
+      }
+      &__loginBtn{
+        position: fixed;
+        right: 30px;
+        border: 1px solid $tea_color;
+        border-radius: 10px;
+        padding: 8px;
+        background-color: rgba(210, 133, 56, 0.2);
+      }
+    }
+    .CatchCopy{
+      position: relative;
+      font-size: 30px;
+      &__textWrapper{
+        position: absolute;
+        left: 22%;
+        top: 215px;
+        &--sub{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .ContentsArea{
+    padding: 70px;
+    h1{
+      font-size: 50px;
+      text-align: center;
+    }
+    .Content{
+      border: 1px dotted $tea_color;
+      background-color: rgb(255, 255, 251);
+      border-radius: 40px;
+      margin-top: 50px;
+      padding: 30px 20px;
+      &__name{
+        margin-bottom: 20px;
+        font-size: 30px;
+        border-bottom: 1px dotted $tea_color;
+        padding-bottom: 30px;
+      }
+      &__box{
+        @include flex_box(space-around, center);
+        &--image{
+          @include w_h(25%, 25%);
+          margin-right: 30px;
+        }
+        &--text{
+          font-size: 22px;
+          padding: 40px;
+        }
+      }
+      .reverse {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+  .StartBtn{
+    font-size: 40px;
+    padding-top: 15px;
+    text-align: center;
+    border: 1px solid $tea_color;
+    border-radius: 10px;
+    @include w_h(200px, 100px);
+    margin: 0 auto;
+    background-color: rgb(255, 255, 251);
+    color: rgb(223, 116, 116); 
+
+  }
+}
+
+
 .StopWatchArea {
   
   background-color: $ivory;
