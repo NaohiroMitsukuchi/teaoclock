@@ -2,9 +2,9 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "users/shared/error_messages", resource: resource
   .field
-    = f.label :email
+    = f.label :nickname
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
   .field
     = f.label :email
     %br/

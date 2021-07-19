@@ -13,7 +13,7 @@
     background-size: cover;
     .TitleBar{
       position: fixed;
-      @include flex_box(start, center);
+      @include flex_box(start, start);
       &__title{
         border-top: 3px solid $tea_color;
         border-bottom: 3px solid $tea_color;
@@ -27,13 +27,21 @@
           margin-right: 10px;
         }
       }
-      &__loginBtn{
+      &__login{
+        line-height: 50px;
         position: fixed;
-        right: 30px;
-        border: 1px solid $tea_color;
-        border-radius: 10px;
-        padding: 8px;
+        right: 0px;
+        border-top: 3px solid $tea_color;
+        border-bottom: 3px solid $tea_color;
         background-color: rgba(210, 133, 56, 0.2);
+        padding: 0 8px;
+        &--btn{
+          text-decoration: none;
+        }
+        &--btn:visited, &--btn:hover,
+        &--btn:active {
+          color: inherit;
+        }
       }
     }
     .CatchCopy{
