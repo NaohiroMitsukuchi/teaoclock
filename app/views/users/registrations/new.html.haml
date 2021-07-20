@@ -39,3 +39,5 @@
       .FormItem
         .FormItem__btn
           = f.submit "登録する"
+      .FormItem
+        = link_to "ログインはこちら", new_user_session_path, class: "FormItem__link"
