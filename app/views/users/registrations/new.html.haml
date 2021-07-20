@@ -6,7 +6,8 @@
     %h1 - 新規登録 -
   .FormArea
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "users/shared/error_messages", resource: resource
+      .FormArea__errorMessages
+        = render "users/shared/error_messages", resource: resource
       .FormItem
         %dl
           %dt.FormItem__label

@@ -19,6 +19,10 @@
     width: 60%;
     font-size: 20px;
     margin: 0 auto;
+    &__errorMessages {
+      font-size: 15px;
+      color: red;
+    }
     .FormItem {
       width: 100%;
       margin-bottom: 20px;
