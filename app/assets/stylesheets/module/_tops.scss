@@ -3,6 +3,37 @@
   box-sizing: border-box;
   }
 
+.TitleBar{
+  position: fixed;
+  width: 100vw;
+  @include flex_box(start, start);
+  border-top: 3px solid $tea_color;
+  border-bottom: 3px solid $tea_color;
+  background-color: rgba(210, 133, 56, 0.2);
+  &__title{
+    @include flex_box(start, center);
+    &--icon{
+      margin: 0 10px;
+    }
+    &--text{
+      font-size: 25px;
+      margin-right: 10px;
+    }
+  }
+  &__nav{
+    line-height: 50px;
+    position: fixed;
+    right: 0px;
+    padding: 0 8px;
+    &--btn{
+      text-decoration: none;
+    }
+    &--btn:visited, &--btn:hover,
+    &--btn:active {
+      color: inherit;
+    }
+  }
+}
 .TopPage{
   background-color: $ivory;
   font-style: oblique;
@@ -11,31 +42,6 @@
     @include w_h(100%, 500px);
     background-image: image-url('background/background_image.jpg');
     background-size: cover;
-    .TitleBar{
-      position: fixed;
-      @include flex_box(start, center);
-      &__title{
-        border-top: 3px solid $tea_color;
-        border-bottom: 3px solid $tea_color;
-        background-color: rgba(210, 133, 56, 0.2);
-        @include flex_box(start, center);
-        &--icon{
-          margin: 0 10px;
-        }
-        &--text{
-          font-size: 25px;
-          margin-right: 10px;
-        }
-      }
-      &__loginBtn{
-        position: fixed;
-        right: 30px;
-        border: 1px solid $tea_color;
-        border-radius: 10px;
-        padding: 8px;
-        background-color: rgba(210, 133, 56, 0.2);
-      }
-    }
     .CatchCopy{
       position: relative;
       font-size: 30px;
@@ -84,65 +90,67 @@
     }
   }
   .StartBtn{
+    display: block;
     font-size: 40px;
-    padding-top: 15px;
+    padding-top: 11px;
     text-align: center;
     border: 1px solid $tea_color;
     border-radius: 10px;
-    @include w_h(200px, 100px);
+    @include w_h(200px, 80px);
     margin: 0 auto;
     background-color: rgb(255, 255, 251);
     color: rgb(223, 116, 116); 
+    text-decoration: none;
 
   }
 }
 
 
-.StopWatchArea {
+// .StopWatchArea {
   
-  background-color: $ivory;
-  .TeaSelectArea {
-    .ConditionSelectArea{
-      &__leaftype{
-        font-size: 100px;
-      }
-    }
-  }
-  .CountDownArea {
-    @include flex_box(center, center);
-    font-size: 200px;
-    color: $tea_color;
-    text-align: center;
-  }
-  .ButtonArea {
-    @include flex_box(center, center);
-    &__start {
-      @include button_style;
-      &--icon {
+//   background-color: $ivory;
+//   .TeaSelectArea {
+//     .ConditionSelectArea{
+//       &__leaftype{
+//         font-size: 100px;
+//       }
+//     }
+//   }
+//   .CountDownArea {
+//     @include flex_box(center, center);
+//     font-size: 200px;
+//     color: $tea_color;
+//     text-align: center;
+//   }
+//   .ButtonArea {
+//     @include flex_box(center, center);
+//     &__start {
+//       @include button_style;
+//       &--icon {
 
-      }
-      &--text {
-      }
-    }
-    &__reset {
-      @include button_style;
+//       }
+//       &--text {
+//       }
+//     }
+//     &__reset {
+//       @include button_style;
 
-      &--icon {
+//       &--icon {
 
-      }
-      &--text {
+//       }
+//       &--text {
         
-      }
-    }
-    &__detail {
-      @include button_style;
+//       }
+//     }
+//     &__detail {
+//       @include button_style;
 
-      &--icon {
+//       &--icon {
 
-      }
-      &--text {
+//       }
+//       &--text {
         
-      }
-    }
-  }
-}
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,25 @@
+.RegistrationPage
+  .TitleBar
+    .TitleBar__title
+      = image_tag 'logo/tea_logo2.png', alt: 'logo', height: '50', width: '50', class: 'TitleBar__title--icon'
+      .TitleBar__title--text Tea'oclock
+    %h1 - ログイン -
+  .FormArea
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :email
+          %dd.FormItem__detail
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "半角英数字"
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :password
+          %dd.FormItem__detail
+            = f.password_field :password, autocomplete: "current-password", placeholder: "半角英数字"
+      .FormItem
+        .FormItem__btn
+          = f.submit "ログイン"
+      .FormItem
+        = link_to "新規登録はこちら", new_user_registration_path, class: "FormItem__link"

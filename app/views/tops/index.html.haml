@@ -1,10 +1,7 @@
+= render partial: "title_bar"
+
 .TopPage
   .Header
-    .TitleBar
-      .TitleBar__title
-        = image_tag 'logo/tea_logo2.png', alt: 'logo', height: '50', width: '50', class: 'TitleBar__title--icon'
-        .TitleBar__title--text Tea'oclock
-      .TitleBar__loginBtn ログイン
     .CatchCopy
       .CatchCopy__textWrapper
         .CatchCopy__textWrapper--main その1秒で味が変わる!?
@@ -15,30 +12,21 @@
     
   .ContentsArea
     %h1 〜機能紹介〜
-    .Content 
-      .Content__name 1. 蒸らしタイマー
-      .Content__box
-        = image_tag 'clock.png', alt: 'タイマーのアイコン', class: 'Content__box--image' 
-        .Content__box--text 紅茶の種類、人数、渋さなどに応じて最適な蒸らし時間、お湯の量、茶葉の量を提案します！好みの時間を探究しよう！
     .Content
-      .Content__name 2. My紅茶登録
-      .Content__box.reverse
+      .Content__name 1. My紅茶登録
+      .Content__box
         = image_tag 'tea2.png', alt: '紅茶のアイコン', class: 'Content__box--image' 
         .Content__box--text 紅茶のメーカー、茶葉の種類、フレーバーの有無等を登録しよう！今まで君が飲んだ紅茶を確認できるよ！
+    .Content 
+      .Content__name 2. 蒸らしタイマー
+      .Content__box.reverse
+        = image_tag 'clock.png', alt: 'タイマーのアイコン', class: 'Content__box--image' 
+        .Content__box--text 紅茶の種類、人数、渋さなどに応じて最適な蒸らし時間、お湯の量、茶葉の量を提案します！好みの時間を探究しよう！
     .Content 
       .Content__name 3. 紅茶ログ
       .Content__box
         = image_tag 'note.png', alt: 'タイマーのアイコン', class: 'Content__box--image' 
         .Content__box--text 淹れた条件をログとして残そう！ドロップの条件を保存し、淹れた紅茶を評価しよう！メモ機能もあるよ！
-  .StartBtn はじめる
+  = link_to "はじめる", new_user_registration_path, class: "StartBtn"
   .FotterArea
-
-
-.StopWatchArea
-  .TeaSelectArea
-    .ConditionSelectArea
-      -# = collection_select(:tea_type, @leaf_types, :id, :type, {prompt: 'リーフタイプを選択してください'}, {class: "ConditionSelectArea__leaftype"})
-      .ConditionSelectArea__leaftype hoge
-      .ConditionSelectArea__number 人数
-      .ConditionSelectArea__astringency 渋さ
 

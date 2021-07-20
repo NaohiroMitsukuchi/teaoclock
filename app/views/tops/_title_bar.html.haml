@@ -1,0 +1,11 @@
+.TitleBar
+  .TitleBar__title
+    = image_tag 'logo/tea_logo2.png', alt: 'logo', height: '50', width: '50', class: 'TitleBar__title--icon'
+    .TitleBar__title--text Tea'oclock
+  %ul.TitleBar__nav
+    - unless user_signed_in?
+      = link_to "ログイン", new_user_session_path, class: "TitleBar__nav--btn"
+      = link_to "新規登録", new_user_registration_path, class: "TitleBar__nav--btn"
+    - else
+      -# = link_to "マイページ", users__path, class: "TitleBar__nav--btn"
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "TitleBar__nav--btn"
