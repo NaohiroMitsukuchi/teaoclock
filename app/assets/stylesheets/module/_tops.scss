@@ -1,7 +1,4 @@
 @import "../mixin";
-* {
-  box-sizing: border-box;
-  }
 
 .TitleBar{
   position: fixed;
@@ -37,6 +34,7 @@
 .TopPage{
   background-color: $ivory;
   font-style: oblique;
+  padding-bottom: 50px;
   .Header{
     border-bottom: 3px solid $tea_color;
     @include w_h(100%, 500px);
