@@ -23,7 +23,7 @@
 |flavor|string||
 |user|references|null: false, foreign_key: true|
 ### Association
-- has_many :my_tea_images, 
+- has_many :my_tea_images
 - belongs_to :tea_type
 - belongs_to :user
 - has_many :drop_condition_logs, dependant :destroy
