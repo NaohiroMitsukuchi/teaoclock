@@ -1,9 +1,9 @@
 class TeaType < ActiveHash::Base
   self.data = [
-    {id: 1, type: "ティーバッグ"},
-    {id: 2, type: "リーフティー"},
-    {id: 3, type: "アイス"},
-    {id: 4, type: "ミルク"},
-    {id: 5, type: "ソーダ"}
+    {id: 1, name: "ティーバッグ"},
+    {id: 2, name: "リーフティー"},
+    {id: 3, name: "アイス"},
+    {id: 4, name: "ミルク"},
+    {id: 5, name: "ソーダ"}
   ]
 end

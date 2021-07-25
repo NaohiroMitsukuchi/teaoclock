@@ -37,7 +37,7 @@
   padding-bottom: 50px;
   .Header{
     border-bottom: 3px solid $tea_color;
-    @include w_h(100%, 500px);
+    @include w_h(100%, 700px);
     background-image: image-url('background/background_image.jpg');
     background-size: cover;
     .CatchCopy{
