@@ -1,6 +1,8 @@
+@import "mixin";
+
 html{
   color:#000;
-  background:#FFF;
+  background-color: $ivory;
 }
 
 * {
