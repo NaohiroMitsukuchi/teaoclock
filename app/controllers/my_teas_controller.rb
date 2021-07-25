@@ -1,5 +1,8 @@
 class MyTeasController < ApplicationController
 
+  def index
+    @my_teas = current_user.my_teas
+  end
   def new
     @my_tea = MyTea.new
     # @my_tea.my_tea_images.new
@@ -8,7 +11,7 @@ class MyTeasController < ApplicationController
   def create
     @my_tea = MyTea.new(my_tea_params)
     if @my_tea.save
-      redirect_to root_path
+      redirect_to my_teas_path
     else 
       render :new
     end

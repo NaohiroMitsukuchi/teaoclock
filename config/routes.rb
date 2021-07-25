@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   end
 
   root 'tops#index'
-  resources :my_teas, only: [:new, :create, :edit, :update, :destroy]
+  resources :my_teas, only: [:index, :new, :create, :edit, :update, :destroy]
 end
