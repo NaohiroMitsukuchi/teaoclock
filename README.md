@@ -43,6 +43,7 @@
 |quantity|string|null: false|
 |temperature|string|null: false|
 |note|string|null: false|
+|evalution|integer||
 |my_tea|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :my_tea

@@ -2,6 +2,60 @@
 
 .MyPage{
   padding-top: 100px;
+  .MyTeasArea{
+    margin: 0 auto;
+    @include w_h(80%, 100%);
+    h1{
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 50px;
+    }
+    .MyTeaCards{
+      @include flex_box(space-around, top);
+      flex-wrap: wrap;
+      .Card{
+        border: 1px solid $tea_color;
+        width: 300px;
+        background-color: #fff;
+        margin: 10px;
+        h2{
+          font-size: 20px;
+          padding: 5px 15px 5px 15px;
+          width: 100%;
+          border-bottom: 1px dotted $tea_color;
+        }
+        &__detail{
+          @include flex_box(top, center);
+          margin-bottom: 15px;
+          &--image{
+            margin-right: 10px;
+          }
+        }
+        &__btn{
+          @include flex_box(space-around, center);
+          margin: 0 auto 10px;
+          width: 80%;
+          color: #fff;
+          &--log{
+            border-radius: 7px;
+            width: 70px;
+            height: 30x;
+            background-color: $tea_color;
+            text-align: center;
+            vertical-align: middle;
+          }
+          &--make{
+            border-radius: 7px;
+            width: 70px;
+            height: 30x;
+            background-color: $tea_color;
+            text-align: center;
+            // vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
 }
 
 .MyTeaRegistrationPage{

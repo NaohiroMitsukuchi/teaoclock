@@ -1,2 +1,48 @@
 = render partial: "tops/title_bar"
-.MyPage test
+.MyPage 
+  .MyTeasArea
+    %h1 ---- My紅茶 ----
+    .MyTeaCards
+      .Card
+        %h2 janet
+        .Card__detail
+          = image_tag 'sample/remon_tea.png', alt: 'My紅茶', height: '100', width: '100', class: 'Card__detail--image'
+          
+          %ul
+            %li 会社名: campany
+            %li 茶葉の種類: reafType
+            %li 産地: origin
+            %li フレーバー: flavor
+
+        .Card__btn
+          .Card__btn--log 履歴
+          .Card__btn--make  淹れる
+          
+      .Card
+        %h2 janet
+        .Card__detail
+          = image_tag 'sample/remon_tea.png', alt: 'My紅茶', height: '100', width: '100', class: 'Card__detail--image'
+          
+          %ul
+            %li 会社名: campany
+            %li 茶葉の種類: reafType
+            %li 産地: origin
+            %li フレーバー: flavor
+
+        .Card__btn
+          .Card__btn--log 履歴
+          .Card__btn--make  淹れる
+      .Card
+        %h2 janet
+        .Card__detail
+          = image_tag 'sample/remon_tea.png', alt: 'My紅茶', height: '100', width: '100', class: 'Card__detail--image'
+          
+          %ul
+            %li 会社名: campany
+            %li 茶葉の種類: reafType
+            %li 産地: origin
+            %li フレーバー: flavor
+
+        .Card__btn
+          .Card__btn--log 履歴
+          .Card__btn--make  淹れる
