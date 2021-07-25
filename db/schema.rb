@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_111920) do
+ActiveRecord::Schema.define(version: 2021_07_22_052149) do
+
+  create_table "my_tea_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "url", null: false
+    t.bigint "my_tea_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["my_tea_id"], name: "index_my_tea_images_on_my_tea_id"
+  end
+
+  create_table "my_teas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "product_name", null: false
+    t.string "campany"
+    t.integer "tea_type_id", null: false
+    t.string "origin"
+    t.string "flavor"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_my_teas_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -25,4 +45,6 @@ ActiveRecord::Schema.define(version: 2021_07_19_111920) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "my_tea_images", "my_teas"
+  add_foreign_key "my_teas", "users"
 end

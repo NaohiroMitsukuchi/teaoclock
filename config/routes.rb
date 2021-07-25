@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     # get "login", :to => "users/sessions#new"
     # get "logout", :to => "users/sessions#destroy"
   end
+
   root 'tops#index'
+  resources :my_teas, only: [:new, :create, :edit, :update, :destroy]
 end

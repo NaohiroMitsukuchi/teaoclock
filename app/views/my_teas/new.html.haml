@@ -1,0 +1,40 @@
+= render partial: "tops/title_bar"
+
+.MyTeaRegistrationPage
+  .FormArea
+    = form_with model: @my_tea, local: true do |f|
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :name, "商品名"
+            %span.required 必須
+          %dd.FormItem__detail
+            = f.text_area :product_name, {class:"a"}
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :name, "会社名"
+          %dd.FormItem__detail
+            = f.text_field :campany, {class:"a"}
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :name, "茶葉の種類"
+            %span.required 必須
+          %dd.FormItem__detail
+            = f.collection_select(:tea_type_id, TeaType.all, :id, :name, {prompt: "選択してください"}, {})
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :name, "産地"
+          %dd.FormItem__detail
+            = f.text_field :origin, {class:"a"}
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :name, "フレーバー"
+          %dd.FormItem__detail
+            = f.text_field :flavor, {class:"a"}
+      .FormItem
+        %p.FormItem__btn
+          = f.submit "登録する"

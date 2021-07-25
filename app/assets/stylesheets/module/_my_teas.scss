@@ -1,0 +1,13 @@
+@import "../mixin";
+
+.MyTeaRegistrationPage{
+  padding-top: 100px;
+  width: 80%;
+  .FormArea{
+    margin: 0 auto;
+    @include flex_box(center, center);
+    .FormItem{
+      width: 100%;
+    }
+  }
+}
