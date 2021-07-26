@@ -15,9 +15,11 @@
       flex-wrap: wrap;
       .Card{
         border: 1px solid $tea_color;
-        width: 300px;
+        width: 350px;
         background-color: #fff;
-        margin: 10px;
+        margin: 15px;
+        box-shadow: 10px 10px 3px 0px $tea_color;
+
         h2{
           font-size: 20px;
           padding: 5px 15px 5px 15px;
@@ -28,7 +30,16 @@
           @include flex_box(top, center);
           margin-bottom: 15px;
           &--image{
-            margin-right: 10px;
+            margin: 10px;
+          }
+          &--text{
+            dl{
+              @include flex_box(top, center);
+              margin-bottom: 5px;
+              dt{
+                margin-right: 10px;
+              }
+            }
           }
         }
         &__btn{
@@ -50,7 +61,6 @@
             height: 30x;
             background-color: $tea_color;
             text-align: center;
-            // vertical-align: middle;
           }
         }
       }
