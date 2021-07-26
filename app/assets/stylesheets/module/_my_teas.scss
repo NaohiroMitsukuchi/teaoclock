@@ -47,20 +47,14 @@
           margin: 0 auto 10px;
           width: 80%;
           color: #fff;
-          &--log{
+          font-size: 20px;
+          &--text{
             border-radius: 7px;
-            width: 70px;
-            height: 30x;
+            width: 100px;
+            height: 40px;
             background-color: $tea_color;
             text-align: center;
-            vertical-align: middle;
-          }
-          &--make{
-            border-radius: 7px;
-            width: 70px;
-            height: 30x;
-            background-color: $tea_color;
-            text-align: center;
+            line-height: 40px;
           }
         }
       }
