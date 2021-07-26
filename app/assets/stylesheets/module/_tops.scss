@@ -9,6 +9,7 @@
   border-bottom: 3px solid $tea_color;
   background-color: rgba(210, 133, 56, 0.2);
   &__title{
+    text-decoration: none;
     @include flex_box(start, center);
     &--icon{
       margin: 0 10px;
@@ -16,6 +17,7 @@
     &--text{
       font-size: 25px;
       margin-right: 10px;
+      color: #000;
     }
   }
   &__nav{
@@ -25,6 +27,7 @@
     padding: 0 8px;
     &--btn{
       text-decoration: none;
+      padding: 0 10px;
     }
     &--btn:visited, &--btn:hover,
     &--btn:active {

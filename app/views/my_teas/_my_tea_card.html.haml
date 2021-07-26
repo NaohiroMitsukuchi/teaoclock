@@ -1,0 +1,25 @@
+.Card
+  %h2=  my_tea.product_name
+  .Card__detail
+    = image_tag 'sample/remon_tea.png', alt: 'My紅茶', height: '150', width: '150', class: 'Card__detail--image'
+    .Card__detail--text
+      %dl
+        %dt 会社名: 
+        %dd= my_tea.campany
+
+      %dl
+        %dt 茶葉の種類: 
+        %dd= my_tea.tea_type.name
+
+      %dl
+        %dt 産地: 
+        %dd= my_tea.origin
+
+      %dl
+        %dt フレーバー: 
+        %dd= my_tea.flavor
+
+  .Card__btn
+    .Card__btn--text 履歴
+    .Card__btn--text  淹れる
+
