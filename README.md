@@ -26,7 +26,7 @@
 - has_many :my_tea_images
 - belongs_to :tea_type
 - belongs_to :user
-- has_many :drop_condition_logs, dependant :destroy
+- has_many :drop_conditions, dependant :destroy
 
 ## MyTeaImagesテーブル
 |Column|Type|Options|
@@ -36,12 +36,12 @@
 ### Association
 - belongs_to :my_tea
 
-## DropConditionLogsテーブル
+## DropConditionテーブル
 |Column|Type|Options|
 |------|----|-------|
 |time|integer|null: false|
-|quantity|string|null: false|
-|temperature|string|null: false|
+|quantity|integer|null: false|
+|temperature|integer|null: false|
 |note|string|null: false|
 |evalution|integer||
 |my_tea|references|null: false, foreign_key: true|

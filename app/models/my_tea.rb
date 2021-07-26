@@ -5,7 +5,7 @@ class MyTea < ApplicationRecord
   # has_many :my_tea_images
   belongs_to :tea_type
   belongs_to :user
-  # has_many :drop_condition_logs, dependant :destroy
+  has_many :drop_conditions, dependant :destroy
 
   with_options presence: true do
     validates :product_name

@@ -46,15 +46,16 @@
           @include flex_box(space-around, center);
           margin: 0 auto 10px;
           width: 80%;
-          color: #fff;
           font-size: 20px;
           &--text{
+            color: #fff;
             border-radius: 7px;
             width: 100px;
             height: 40px;
             background-color: $tea_color;
             text-align: center;
             line-height: 40px;
+            text-decoration: none;
           }
         }
       }

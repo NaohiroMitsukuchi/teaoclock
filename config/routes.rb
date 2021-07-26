@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   end
 
   root 'tops#index'
-  resources :my_teas, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  resources :my_teas, only: [:index, :new, :create, :edit, :update, :destroy] do
+    resources :drop_conditions, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
+
 end

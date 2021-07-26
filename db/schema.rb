@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_052149) do
+ActiveRecord::Schema.define(version: 2021_07_26_081204) do
+
+  create_table "drop_conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "time", null: false
+    t.integer "quantity", null: false
+    t.integer "temperature", null: false
+    t.string "note", null: false
+    t.integer "evalution"
+    t.bigint "my_tea_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["my_tea_id"], name: "index_drop_conditions_on_my_tea_id"
+  end
 
   create_table "my_tea_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "url", null: false
@@ -45,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_052149) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "drop_conditions", "my_teas"
   add_foreign_key "my_tea_images", "my_teas"
   add_foreign_key "my_teas", "users"
 end
