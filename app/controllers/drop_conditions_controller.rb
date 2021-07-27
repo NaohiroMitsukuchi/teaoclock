@@ -1,5 +1,5 @@
 class DropConditionsController < ApplicationController
-  
+
   def new
   end
 
@@ -12,4 +12,9 @@ class DropConditionsController < ApplicationController
   def update
   end
 
+  private
+  def drop_condition_params
+    params.require(:drop_condition).permit(:time, :tea_type_id, :quantity, :temperature, :note, :evalution, :my_tea_id).merge(user_id: current_user.id)
+  end
 end
+

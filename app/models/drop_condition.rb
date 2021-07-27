@@ -2,11 +2,15 @@ class DropCondition < ApplicationRecord
   belongs_to_active_hash :tea_type
   belongs_to :tea_type
   belongs_to :my_tea
-  belongs_to :user
 
   with_options presence: true do
-    validates :product_name
-    validates :leaf_type_id
-    validates :user_id
+    validates :time
+    validates :tea_type_id
+    validates :quantity
+    validates :temperature
+    validates :note
+    validates :evalution
+    validates :my_tea_id
   end
 end
+
