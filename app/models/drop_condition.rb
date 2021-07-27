@@ -6,7 +6,7 @@ class DropCondition < ApplicationRecord
   with_options presence: true do
     validates :time
     validates :tea_type_id
-    validates :quantity
+    validates :number_of_people
     validates :temperature
     validates :note
     validates :evalution

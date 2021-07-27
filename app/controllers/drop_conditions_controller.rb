@@ -14,7 +14,7 @@ class DropConditionsController < ApplicationController
 
   private
   def drop_condition_params
-    params.require(:drop_condition).permit(:time, :tea_type_id, :quantity, :temperature, :note, :evalution, :my_tea_id).merge(user_id: current_user.id)
+    params.require(:drop_condition).permit(:time, :tea_type_id, :number_of_people, :temperature, :note, :evalution, :my_tea_id).merge(user_id: current_user.id)
   end
 end
 
