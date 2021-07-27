@@ -19,6 +19,6 @@ class MyTeasController < ApplicationController
 
   private
   def my_tea_params
-    params.require(:my_tea).permit(:product_name,:campany,:tea_type_id,:origin,:flavor,my_tea_images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:my_tea).permit(:product_name,:campany,:leaf_type_id,:origin,:flavor,my_tea_images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
 end

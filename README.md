@@ -10,7 +10,7 @@
 ### Association
 - has_many :my_teas, dependent: :destroy
 - has_many :favorites, dependent: :destroy
-- has_many :drop_condition_logs, through :favorites
+- has_many :drop_conditions, through :favorites
 
 
 ## MyTeasテーブル
@@ -57,7 +57,7 @@
 |drop_condition_log|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_one :drop_condition_log
+- has_one :drop_condition
 
 
 ## Teatypesテーブル

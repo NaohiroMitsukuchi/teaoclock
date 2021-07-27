@@ -1,0 +1,38 @@
+@import "../mixin";
+
+.DropConditionRegistrationPage{
+  padding-top: 100px;
+  .StopWatchArea {
+    background-color: $ivory;
+    .CountDownArea {
+      @include flex_box(center, center);
+      font-size: 200px;
+      color: $tea_color;
+      text-align: center;
+    }
+    .ButtonArea {
+      @include flex_box(center, center);
+      &__start {
+        @include button_style;
+        &--icon {
+        }
+        &--text {
+        }
+      }
+      &__reset {
+        @include button_style;
+        &--icon {
+        }
+        &--text {
+        }
+      }
+      &__detail {
+        @include button_style;
+        &--icon {
+        }
+        &--text {
+        }
+      }
+    }
+  }
+}

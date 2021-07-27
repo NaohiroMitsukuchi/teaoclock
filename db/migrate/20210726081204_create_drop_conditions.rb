@@ -2,6 +2,7 @@ class CreateDropConditions < ActiveRecord::Migration[6.0]
   def change
     create_table :drop_conditions do |t|
       t.integer :time, null: false
+      t.references :tea_type, null: false, foreign_key: true
       t.integer :quantity, null: false
       t.integer :temperature, null: false
       t.string :note, null: false
