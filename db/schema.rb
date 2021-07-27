@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_07_26_081204) do
 
   create_table "drop_conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time", null: false
+    t.integer "tea_type_id", null: false
     t.integer "quantity", null: false
     t.integer "temperature", null: false
     t.string "note", null: false
@@ -35,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_07_26_081204) do
   create_table "my_teas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "product_name", null: false
     t.string "campany"
-    t.integer "tea_type_id", null: false
+    t.integer "leaf_type_id", null: false
     t.string "origin"
     t.string "flavor"
     t.bigint "user_id", null: false
