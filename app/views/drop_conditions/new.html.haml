@@ -2,9 +2,16 @@
 
 .DropConditionRegistrationPage
   .ConditionSelectArea
-    .ConditionSelectArea__number 
-    .ConditionSelectArea__teaType
+    .ConditionSelectArea__number
+      .ConditionSelectArea__number--icon= icon("fas", "users")
+      .ConditionSelectArea__number--text 人数
+    .ConditionSelectArea__number
+      .ConditionSelectArea__teaType--icon= icon("fas", "coffee")
+      .ConditionSelectArea__teaType--text 飲み方
 
+  .ConditionResultArea
+    .ConditionResultArea__water -
+    .ConditionResultArea__leaf -
   .StopWatchArea
     .CountDownArea
       .CountDownArea__timertext--min 150
