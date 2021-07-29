@@ -2,10 +2,9 @@
 
 .DropConditionRegistrationPage{
   padding-top: 100px;
-
   .ConditionSelectArea{
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     @include flex_box(space-around, center);
     font-size: 28px;
     &__number{
@@ -30,40 +29,54 @@
       select{
         padding: 10px;
         text-align: center;
+        border-radius: 5px;
+        background-color: #fff;
       }
     }
   }
 
+  .ConditionResultArea{
+    background-color: rgba(206, 130, 54, 0.4);
+    padding: 20px 0;
+    margin: 0 auto;
+    @include flex_box(space-around, center);
+    &__result{
+      font-size: 30px;
+      @include flex_box(center, center);
+      &--label{
+        margin-right: 15px;
+      }
+      &--arrow{
+        margin-right: 15px;
+      }
+      &--text{
+
+      }
+    }
+  }
 
   .StopWatchArea {
-    background-color: $ivory;
+    background-color: rgba(206, 130, 54, 0.8);
+    border: 1px solid $tea_color;
+    h2 {
+      margin-top: 15px;
+      font-size: 40px;
+      text-align: center;
+      color: #fff;
+    }
     .CountDownArea {
       @include flex_box(center, center);
       font-size: 150px;
-      color: $tea_color;
+      color: #fff;
       text-align: center;
     }
     .ButtonArea {
       @include flex_box(center, center);
-      &__start {
-        @include button_style;
-        &--icon {
-        }
-        &--text {
-        }
-      }
-      &__reset {
-        @include button_style;
-        &--icon {
-        }
-        &--text {
-        }
-      }
-      &__detail {
-        @include button_style;
-        &--icon {
-        }
-        &--text {
+      .BtnStyle{
+        margin: 0 auto;
+        @include button_style();
+        &__text{
+          width: 100%;
         }
       }
     }

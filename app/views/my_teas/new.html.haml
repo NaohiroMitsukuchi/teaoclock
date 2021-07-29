@@ -6,35 +6,35 @@
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :name, "商品名"
+            = f.label :product_name, "商品名"
             %span.required 必須
           %dd.FormItem__detail
-            = f.text_area :product_name, {class:"a"}
+            = f.text_area :product_name
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :name, "会社名"
+            = f.label :campany, "会社名"
           %dd.FormItem__detail
-            = f.text_field :campany, {class:"a"}
+            = f.text_field :campany
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :name, "茶葉の種類"
+            = f.label :leaf_type, "茶葉の種類"
             %span.required 必須
           %dd.FormItem__detail
             = f.collection_select(:leaf_type_id, LeafType.all, :id, :name, {prompt: "選択してください"}, {})
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :name, "産地"
+            = f.label :origin, "産地"
           %dd.FormItem__detail
-            = f.text_field :origin, {class:"a"}
+            = f.text_field :origin
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :name, "フレーバー"
+            = f.label :flavor, "フレーバー"
           %dd.FormItem__detail
-            = f.text_field :flavor, {class:"a"}
+            = f.text_field :flavor
       .FormItem
         %p.FormItem__btn
           = f.submit "登録する"
