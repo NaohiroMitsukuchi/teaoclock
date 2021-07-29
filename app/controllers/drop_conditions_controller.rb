@@ -1,9 +1,16 @@
 class DropConditionsController < ApplicationController
 
   def new
+    @drop_condition = DropCondition.new
   end
 
   def create
+    @drop_condition = DropCondition.new(drop_condition_params)
+    if @drop_condition
+      redirect_to my_teas_path
+    else
+      render :new
+    end
   end
 
   def edit
