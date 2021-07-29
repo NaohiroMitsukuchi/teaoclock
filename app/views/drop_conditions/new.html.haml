@@ -4,10 +4,23 @@
   .ConditionSelectArea
     .ConditionSelectArea__number
       .ConditionSelectArea__number--icon= icon("fas", "users")
-      .ConditionSelectArea__number--text 人数
-    .ConditionSelectArea__number
+      .ConditionSelectArea__selectBox 
+        %select{:name => "number_of_people"}
+          %option{:value => "0"}  人数を選択
+          %option{:value => "1"}  1人
+          %option{:value => "2"}  2人
+          %option{:value => "3"}  3人
+          %option{:value => "4"}  4人
+          %option{:value => "5"}  5人
+          %option{:value => "6"}  6人
+          %option{:value => "7"}  7人
+          %option{:value => "8"}  8人
+          %option{:value => "9"}  9人
+          %option{:value => "10"}  10人
+    .ConditionSelectArea__teaType
       .ConditionSelectArea__teaType--icon= icon("fas", "coffee")
-      .ConditionSelectArea__teaType--text 飲み方
+      .ConditionSelectArea__selectBox 
+        = collection_select :tea_type, :tea_type_id, TeaType.all, :id, :name, {prompt: "飲み方を選択"}
 
   .ConditionResultArea
     .ConditionResultArea__water -

@@ -2,6 +2,7 @@ class DropConditionsController < ApplicationController
 
   def new
     @drop_condition = DropCondition.new
+    # binding.pry
   end
 
   def create

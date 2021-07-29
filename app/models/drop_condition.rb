@@ -1,4 +1,5 @@
 class DropCondition < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :tea_type
   belongs_to :tea_type
   belongs_to :my_tea

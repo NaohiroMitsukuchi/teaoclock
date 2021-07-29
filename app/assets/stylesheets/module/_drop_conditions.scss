@@ -2,11 +2,44 @@
 
 .DropConditionRegistrationPage{
   padding-top: 100px;
+
+  .ConditionSelectArea{
+    width: 70%;
+    margin: 0 auto;
+    @include flex_box(space-around, center);
+    font-size: 28px;
+    &__number{
+      @include flex_box(center, center);
+      &--icon{
+        i {
+          margin-right: 10px;
+          font-size: 50px;
+        }
+      }
+    }
+    &__teaType{
+      @include flex_box(center, center);
+      &--icon{
+        i{
+          margin-right: 10px;
+          font-size: 50px;
+        }
+      }
+    }
+    &__selectBox{
+      select{
+        padding: 10px;
+        text-align: center;
+      }
+    }
+  }
+
+
   .StopWatchArea {
     background-color: $ivory;
     .CountDownArea {
       @include flex_box(center, center);
-      font-size: 200px;
+      font-size: 150px;
       color: $tea_color;
       text-align: center;
     }
