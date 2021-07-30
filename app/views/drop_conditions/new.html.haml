@@ -5,7 +5,7 @@
     .ConditionSelectArea__number
       .ConditionSelectArea__number--icon= icon("fas", "users")
       .ConditionSelectArea__selectBox 
-        %select{:name => "number_of_people"}
+        %select{:name => "number_of_people", id: "number_of_people_select"}
           %option{:value => "0"}  人数を選択
           %option{:value => "1"}  1人
           %option{:value => "2"}  2人
@@ -21,7 +21,7 @@
     .ConditionSelectArea__teaType
       .ConditionSelectArea__teaType--icon= icon("fas", "coffee")
       .ConditionSelectArea__selectBox 
-        = collection_select :tea_type, :tea_type_id, @tea_types, :id, :name, {prompt: "飲み方を選択"}
+        = collection_select :tea_type, :tea_type_id, @tea_types, :id, :name, {prompt: "飲み方を選択"}, {id: "tea_type_select"}
 
   .ConditionResultArea
     .ConditionResultArea__result
