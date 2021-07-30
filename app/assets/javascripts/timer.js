@@ -1,22 +1,32 @@
 $(document).on('turbolinks:load', function(){
-// ボタンを定義
+// 定数、変数の定義
+  let waterQuantity = $("#water_quantity").text();
+  let leafQuantity = $("#leaf_quantity").text();
   const startBtn  = $(".ButtonArea__start");
   const resetBtn  = $(".ButtonArea__reset");
   const detailBtn = $(".ButtonArea__detail");
-  let timerMin    = $('.CountDownArea__timertext--min');
+  let timerMin    = $(".CountDownArea__timertext--min");
   let elapsedTime = 0;
-  let resetMin    = $('.CountDownArea__timertext--min').text();
+  let resetMin    = $(".CountDownArea__timertext--min").text();
   let intervalId; 
 
-  // タイマーの書き換えの関数
-  const rewiteTimer = (intervalId, elapsedTime) => {
-    remainTime = resetMin - elapsedTime;
-    if (remainTime < 0){
-      clearInterval(intervalId);
-    }else{
-      timerMin.html(remainTime);
-    }
+// 関数定義
+  // ストップウォッチ稼働中のタイマーの書き換えの関数
+const rewiteTimer = (intervalId, elapsedTime) => {
+  remainTime = resetMin - elapsedTime;
+  if (remainTime < 0){
+    clearInterval(intervalId);
+  }else{
+    timerMin.html(remainTime);
   }
+}
+
+// セレクトボックス選択時の挙動
+  // 人数選択時
+  
+
+
+
 
 // ボタンクリック時の挙動
   // カウントダウン開始
@@ -29,7 +39,6 @@ $(document).on('turbolinks:load', function(){
     };
   });
 
-  
   // タイマーリセット
   resetBtn.on('click', function(){
     clearInterval(intervalId);

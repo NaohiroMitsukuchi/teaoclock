@@ -27,11 +27,15 @@
     .ConditionResultArea__result
       .ConditionResultArea__result--label 必要な湯量
       .ConditionResultArea__result--arrow= icon("fas", "arrow-right")
-      .ConditionResultArea__result--text#water_quantity 150 ml
+      .ConditionResultArea__result--text
+        %span#water_quantity  150
+        ml
     .ConditionResultArea__result
       .ConditionResultArea__result--label 茶葉の重さ
       .ConditionResultArea__result--arrow= icon("fas", "arrow-right")
-      .ConditionResultArea__result--text#leaf_quantity 2.5 g
+      .ConditionResultArea__result--text
+        %span#leaf_quantity 2.5
+        g
   .StopWatchArea
     %h2 蒸らし時間
     .CountDownArea
