@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function(){
   let leafQuantity = 2.5;
   let save_number;
   let selectId; // 1: 飲み方でミルク、ソーダ選択時
-  
+
   // ストップウォッチ用
   const startBtn  = $(".ButtonArea__start");
   const resetBtn  = $(".ButtonArea__reset");

@@ -39,7 +39,10 @@
   .StopWatchArea
     %h2 蒸らし時間
     .CountDownArea
-      .CountDownArea__timertext--min 150
+      - if @my_tea.leaf_type_id == 1 
+        .CountDownArea__timertext--min 150
+      - else 
+        .CountDownArea__timertext--min 180
     .ButtonArea
       .ButtonArea__start.BtnStyle
         .BtnStyle__icon= icon("far", "play-circle")
@@ -47,9 +50,9 @@
       .ButtonArea__reset.BtnStyle
         .BtnStyle__icon= icon("fas ", "hourglass-start")
         .BtnStyle__text reset
-      .ButtonArea__detail.BtnStyle
-        .BtnStyle__icon= icon("fas", "cogs")
-        .BtnStyle__text 設定
+      -# .ButtonArea__detail.BtnStyle
+      -#   .BtnStyle__icon= icon("fas", "cogs")
+      -#   .BtnStyle__text 設定
 
   .FormArea
     = form_with(model: [@my_tea, @drop_condition], local: true) do |f|
