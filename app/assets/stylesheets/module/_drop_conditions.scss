@@ -81,4 +81,57 @@
       }
     }
   }
+
+  .FormArea{
+    width: 50%;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 10px;
+    border: 1px solid $tea_color;
+    border-radius: 20px;
+    color: brown;
+    h2{
+      font-size: 20px;
+      text-align: center;
+      font-weight: 500;
+      margin: 10px;
+    }
+    .FormItem{
+      margin: 10px auto;
+      font-size: 18px;
+      dl{
+        @include flex_box(top, center);
+      }
+      &__label{
+        margin-bottom: 5px;
+        width: 40%;
+        text-align: center;
+      }
+      &__detail{
+        input{
+          padding: 3px;
+          width: 250px;
+        }
+        select{
+          // appearance: none;
+          width: 250px;
+          display: block;
+          padding: 3px;
+        }
+      }
+      &__btn{
+        @include flex_box(center, center);
+        input{
+          width: 100px;
+          margin: 10px auto;
+          text-align: center;
+          padding: 5px;
+          border: 1px solid $tea_color;
+          border-radius: 5px;
+          background-color: $ivory;
+          color: $tea_color;
+        }
+      }
+    }
+  }
 }

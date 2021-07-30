@@ -40,7 +40,7 @@
     %h2 蒸らし時間
     .CountDownArea
       - if @my_tea.leaf_type_id == 1 
-        .CountDownArea__timertext--min 150
+        .CountDownArea__timertext--min 3
       - else 
         .CountDownArea__timertext--min 180
     .ButtonArea
@@ -55,7 +55,9 @@
       -#   .BtnStyle__text 設定
 
   .FormArea
+    %h2 ログに登録
     = form_with(model: [@my_tea, @drop_condition], local: true) do |f|
+      #FormItemBox
       .FormItem
         %dl
           %dt.FormItem__label
@@ -83,22 +85,16 @@
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :note, "メモ"
-          %dd.FormItem__detail
-            = f.text_field :note
-      .FormItem
-        %dl
-          %dt.FormItem__label
             = f.label :evalution, "評価(1-10点)"
           %dd.FormItem__detail
             = f.text_field :evalution
       .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :note, "メモ"
+          %dd.FormItem__detail
+            = f.text_field :note
+      .FormItem
         %p.FormItem__btn
-          = f.submit "登録する"
-
-
-
-
-
-
+          = f.submit "登録"
 

@@ -6,13 +6,16 @@ class DropConditionsController < ApplicationController
     @leaf_types = LeafType.all
     @tea_types = TeaType.all
   end
-
+  
   def create
+    @my_tea = MyTea.find(params[:my_tea_id])
     @drop_condition = DropCondition.new(drop_condition_params)
+    @leaf_types = LeafType.all
+    @tea_types = TeaType.all
     if @drop_condition.save
       redirect_to my_teas_path
     else
-      render root_path
+      render :new
     end
   end
 
