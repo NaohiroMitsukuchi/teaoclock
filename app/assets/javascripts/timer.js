@@ -9,27 +9,32 @@ $(document).on('turbolinks:load', function(){
   // ストップウォッチ用
   const startBtn  = $(".ButtonArea__start");
   const resetBtn  = $(".ButtonArea__reset");
-  let timerMin    = $(".CountDownArea__timertext--min");
+  let timerSec    = $(".CountDownArea__timertext");
   let elapsedTime = 0;
-  let resetMin    = $(".CountDownArea__timertext--min").text();
+  let resetSec    = $(".CountDownArea__timertext").text();
   let intervalId; 
   
 // 関数定義
+  // タイマー終了後にログ登録フォームを出現させる関数
+  const showForm = () => {
+    $('.FormArea').css("display", "block");
+    $('#form_number_of_people').val(numberOfPeople);
+    $('#form_tea_type').val(teaTypeIndex);
+    $('#form_water_quantity').val(waterQuantity);
+    $('#form_leaf_quantity').val(leafQuantity);
+    $('#form_time').val(resetSec);
+  }
   // ストップウォッチ稼働中のタイマーの書き換えの関数
   const rewiteTimer = (intervalId, elapsedTime) => {
-    remainTime = resetMin - elapsedTime;
+    remainTime = resetSec - elapsedTime;
     if (remainTime < 0){
       clearInterval(intervalId);
       showForm();
     }else{
-      timerMin.html(remainTime);
+      timerSec.html(remainTime);
     }
   }
 
-  // タイマー終了後にログ登録フォームを出現させる関数
-  const showForm = () => {
-    $('.FormArea').css("display", "block");
-  }
 
   // 湯量、茶葉量書き換えの関数
   const rewriteQuantity = (numberOfPeople, teaTypeIndex) => {
@@ -104,7 +109,7 @@ $(document).on('turbolinks:load', function(){
     clearInterval(intervalId);
     elapsedTime = 0;
     intervalId = null;
-    timerMin.html(resetMin);
+    timerSec.html(resetSec);
   });
 
   // フォーム削除ボタン

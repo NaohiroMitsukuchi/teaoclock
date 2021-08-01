@@ -40,9 +40,9 @@
     %h2 蒸らし時間
     .CountDownArea
       - if @my_tea.leaf_type_id == 1 
-        .CountDownArea__timertext--min 3
+        .CountDownArea__timertext 3
       - else 
-        .CountDownArea__timertext--min 180
+        .CountDownArea__timertext 180
     .ButtonArea
       .ButtonArea__start.BtnStyle
         .BtnStyle__icon= icon("far", "play-circle")
@@ -62,27 +62,41 @@
           %dt.FormItem__label
             = f.label :time, "蒸らし時間"
           %dd.FormItem__detail
-            = f.text_field :time
+            = f.text_field :time, {id: "form_time"}
+            %span 秒
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :water_quantity, "湯量"
+          %dd.FormItem__detail
+            = f.text_field :water_quantity, {id: "form_water_quantity"}
+            %span 秒
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :leaf_quantity, "茶葉量"
+          %dd.FormItem__detail
+            = f.text_field :leaf_quantity, {id: "form_leaf_quantity"}
             %span 秒
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :number_of_people, "人数"
           %dd.FormItem__detail
-            = f.text_field :number_of_people
+            = f.text_field :number_of_people, {id: "form_number_of_people"}
             %span 人
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :tea_type_id, "飲み方"
           %dd.FormItem__detail
-            = f.collection_select(:tea_type_id, @tea_types, :id, :name, {prompt: "選択してください"}, {})
+            = f.collection_select(:tea_type_id, @tea_types, :id, :name, {prompt: "選択してください"}, {id: "form_tea_type"})
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :temperature, "温度"
           %dd.FormItem__detail
-            = f.text_field :temperature
+            = f.text_field :temperature,{value: "100"}
             %span ℃
       .FormItem
         %dl

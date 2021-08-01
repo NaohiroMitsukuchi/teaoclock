@@ -38,6 +38,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |time|integer|null: false|
+|water_quantity|integer|null: false|
+|leaf_quantity|float|null: false|
 |quantity|integer|null: false|
 |temperature|integer|null: false|
 |note|string|null: false|
