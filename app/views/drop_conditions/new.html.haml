@@ -50,12 +50,11 @@
       .ButtonArea__reset.BtnStyle
         .BtnStyle__icon= icon("fas ", "hourglass-start")
         .BtnStyle__text reset
-      -# .ButtonArea__detail.BtnStyle
-      -#   .BtnStyle__icon= icon("fas", "cogs")
-      -#   .BtnStyle__text 設定
 
   .FormArea
-    %h2 ログに登録
+    .FormArea__title
+      .removeBtn= icon("fas", "times")
+      %h2 ログに登録
     = form_with(model: [@my_tea, @drop_condition], local: true) do |f|
       #FormItemBox
       .FormItem
@@ -64,12 +63,14 @@
             = f.label :time, "蒸らし時間"
           %dd.FormItem__detail
             = f.text_field :time
+            %span 秒
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :number_of_people, "人数"
           %dd.FormItem__detail
             = f.text_field :number_of_people
+            %span 人
       .FormItem
         %dl
           %dt.FormItem__label
@@ -82,18 +83,16 @@
             = f.label :temperature, "温度"
           %dd.FormItem__detail
             = f.text_field :temperature
+            %span ℃
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :evalution, "評価(1-10点)"
           %dd.FormItem__detail
             = f.text_field :evalution
+            %span 点
       .FormItem
-        %dl
-          %dt.FormItem__label
-            = f.label :note, "メモ"
-          %dd.FormItem__detail
-            = f.text_field :note
+        = f.text_field :note,{placeholder: "メモ", class: "FormItem__memo"}
       .FormItem
         %p.FormItem__btn
           = f.submit "登録"
