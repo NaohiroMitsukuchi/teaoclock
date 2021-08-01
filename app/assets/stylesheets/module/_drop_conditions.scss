@@ -49,9 +49,6 @@
       &--arrow{
         margin-right: 15px;
       }
-      &--text{
-
-      }
     }
   }
 
@@ -69,6 +66,9 @@
       font-size: 150px;
       color: #fff;
       text-align: center;
+      &__timer{
+        margin: 0 90px;
+      }
     }
     .ButtonArea {
       @include flex_box(center, center);

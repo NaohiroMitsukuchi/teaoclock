@@ -9,9 +9,9 @@ $(document).on('turbolinks:load', function(){
   // ストップウォッチ用
   const startBtn  = $(".ButtonArea__start");
   const resetBtn  = $(".ButtonArea__reset");
-  let timerSec    = $(".CountDownArea__timertext");
+  let timerSec    = $(".CountDownArea__timer").text();
   let elapsedTime = 0;
-  let resetSec    = $(".CountDownArea__timertext").text();
+  let resetSec    = $(".CountDownArea__timer").text();
   let intervalId; 
   
 // 関数定義
@@ -26,16 +26,14 @@ $(document).on('turbolinks:load', function(){
   }
   // ストップウォッチ稼働中のタイマーの書き換えの関数
   const rewiteTimer = (intervalId, elapsedTime) => {
-    remainTime = resetSec - elapsedTime;
+    remainTime = timerSec - elapsedTime;
     if (remainTime < 0){
       clearInterval(intervalId);
       showForm();
     }else{
-      timerSec.html(remainTime);
+      $(".CountDownArea__timer").html(remainTime);
     }
   }
-
-
   // 湯量、茶葉量書き換えの関数
   const rewriteQuantity = (numberOfPeople, teaTypeIndex) => {
     if(teaTypeIndex == 0){
@@ -72,8 +70,8 @@ $(document).on('turbolinks:load', function(){
     $('#tea_type_select').val(null);
     $("#water_quantity").html(waterQuantity);
     $("#leaf_quantity").html(leafQuantity);
-  };
-
+  }
+  
 // 人数選択時の挙動
   $('#number_of_people_select').on('change', function(){
     numberOfPeople = $(this).val();
@@ -102,6 +100,8 @@ $(document).on('turbolinks:load', function(){
         rewiteTimer(intervalId, elapsedTime);
       }, 1000);
     }
+    $('#CountDownArea__reduceTime').css('display', 'none');
+    $('#CountDownArea__increaseTime').css('display', 'none');
   });
 
   // タイマーリセット
@@ -109,9 +109,23 @@ $(document).on('turbolinks:load', function(){
     clearInterval(intervalId);
     elapsedTime = 0;
     intervalId = null;
-    timerSec.html(resetSec);
+    timerSec = resetSec;
+    $(".CountDownArea__timer").html(resetSec);
+    $('#CountDownArea__reduceTime').css('display', 'block');
+    $('#CountDownArea__increaseTime').css('display', 'block');
   });
 
+  // タイマーの増減ボタン
+  $('#CountDownArea__reduceTime').on('click', function(){
+    timerSec --;
+    resetSec = timerSec;
+    $(".CountDownArea__timer").html(timerSec);
+    });
+  $('#CountDownArea__increaseTime').on('click', function(){
+    timerSec ++;
+    resetSec = timerSec;
+    $(".CountDownArea__timer").html(timerSec);
+    });
   // フォーム削除ボタン
   $('.removeBtn').on('click', function(){
     $('.FormArea').css("display", "none");
