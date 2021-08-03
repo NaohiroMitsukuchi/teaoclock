@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2021_07_26_081204) do
     t.integer "tea_type_id", null: false
     t.integer "number_of_people", null: false
     t.integer "temperature", null: false
-    t.string "note", null: false
-    t.integer "evalution"
+    t.string "note"
+    t.integer "evaluation"
     t.bigint "my_tea_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

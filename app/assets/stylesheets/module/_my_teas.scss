@@ -76,12 +76,11 @@
 }
 
 .DropConditionLists{
-  // background-color: coral;
   width: 80%;
   margin: 0 auto;
-  border: 2px solid $tea_color;
-  border-radius: 10px;
   .ListWrapper{
+    border: 2px solid $tea_color;
+    border-radius: 10px;
     .List{
       @include flex_box(top, top);
       @include w_h(70%, 100px);

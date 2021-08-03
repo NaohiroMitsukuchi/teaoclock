@@ -1,30 +1,44 @@
 $(document).on('turbolinks:load', function(){
   const tea_type = ["ストレート","アイス","ミルク","ソーダ"];
   const buildDropConditionLogs = (log) => {
-    let html = `<div class="List">
-                  <dl>
-                    <dt class="List__label">時間</dt>
-                    <dd class="List__detail">${log.time}</dd>
-                  </dl>
-                  <dl>
-                    <dt class="List__label">湯量</dt>
-                    <dd class="List__detail">${log.water_quantity}</dd>
-                  </dl>
-                  <dl>
-                    <dt class="List__label">茶葉</dt>
-                    <dd class="List__detail">${log.leaf_quantity}</dd>
-                  </dl>
-                  <dl>
-                    <dt class="List__label">飲み方</dt>
-                    <dd class="List__detail">${tea_type[log.tea_type_id - 1]}</dd>
-                  </dl>
-                  <dl>
-                    <dt class="List__label">人数</dt>
-                    <dd class="List__detail">${log.number_of_people}</dd>
-                  </dl>
-                  <dl>
-                    <dt class="List__label">温度</dt>
-                    <dd class="List__detail">${log.temperature}</dd>
+    console.log("hello");
+    let html = `<div class="ListWrapper">
+                  <div class="List">
+                    <dl class="List__evaluation">
+                      <dt class="List__detail List__evaluation--detail">${log.evaluation}</dt>
+                      <dd class="List__label List__evaluation--label">評価</dd>
+                    </dl>
+                    <dl>
+                      <dt class="List__label"><i class="fas fa-hourglass-start"></i></dt>
+                      <dd class="List__detail">${log.time} 秒</dd>
+                    </dl>
+                    <dl>
+                      <dt class="List__label"><i class="fas fa-tint"></i></dt>
+                      <dd class="List__detail">${log.water_quantity} ml</dd>
+                    </dl>
+                    <dl>
+                      <dt class="List__label"><i class="fab fa-envira"></i></dt>
+                      <dd class="List__detail">${log.leaf_quantity} g</dd>
+                    </dl>
+                    <dl>
+                      <dt class="List__label"><i class="fas fa-coffee"></i></dt>
+                      <dd class="List__detail">${tea_type[log.tea_type_id - 1]}</dd>
+                    </dl>
+                    <dl>
+                      <dt class="List__label"><i class="fas fa-users"></i></dt>
+                      <dd class="List__detail">${log.number_of_people} 人</dd>
+                    </dl>
+                    <dl>
+                      <dt class="List__label"><i class="fas fa-temperature-high"></i></dt>
+                      <dd class="List__detail">${log.temperature} ℃</dd>
+                    </dl>
+                  </div>
+                  <dl class="MemoArea">
+                    <dd class="MemoArea__label">
+                      <i class="far fa-comment-dots"></i>
+                    </dd>
+                    <dt class="MemoArea__detail">${log.note}
+                    </dt>
                   </dl>
                 </div>`
     $('.DropConditionLists').append(html);
@@ -41,6 +55,7 @@ $(document).on('turbolinks:load', function(){
       dataType: 'json'
     })
     .done(function(logs){
+      console.log(logs);
       $.each(logs, function(index, log){
         buildDropConditionLogs(log);
       });
@@ -50,4 +65,3 @@ $(document).on('turbolinks:load', function(){
     });
   })
 });
-

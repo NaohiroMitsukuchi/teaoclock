@@ -8,7 +8,7 @@ class CreateDropConditions < ActiveRecord::Migration[6.0]
       t.integer :number_of_people, null: false
       t.integer :temperature, null: false
       t.string :note
-      t.integer :evalution
+      t.integer :evaluation
       t.references :my_tea, null: false, foreign_key: true
       t.timestamps
     end
