@@ -75,3 +75,64 @@
   }
 }
 
+.DropConditionLists{
+  // background-color: coral;
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid $tea_color;
+  border-radius: 10px;
+  .ListWrapper{
+    .List{
+      @include flex_box(top, top);
+      @include w_h(70%, 100px);
+      margin: 0 auto;
+      dl {
+        margin:0px auto;
+        text-align: center;
+        width: 14%;
+        #List__teaType{
+          font-size: 16px;
+          height: 30px;
+          line-height: 30px;
+        }
+      } 
+      &__label{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        i{
+          font-size: 40px;
+        }
+      }
+      &__detail{
+        font-size: 20px;
+      }
+      &__evaluation{
+        height: 49px;
+        margin: 0;
+        &--detail{
+          font-size: 30px;
+        }
+        &--label{
+          font-size: 20px;
+        }
+      }
+    }
+    .MemoArea{
+      @include flex_box(top, top);
+      @include w_h(70%, 50px);
+      margin: 0 auto;
+      &__label{
+        margin-right: 20px;
+        i {
+          font-size: 50px;
+          transform: scaleX(-1);
+        }
+      }
+      &__detail{
+        font-size: 20px;
+        line-height: 50px;
+        overflow: scroll;
+      }
+    }
+  }
+}
