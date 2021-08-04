@@ -76,14 +76,40 @@
 }
 
 .DropConditionLists{
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
+  z-index:2;
+  background-color: #fff;
+  position:fixed;
+	top:100px;
+  left:20%;
+  padding: 20px;
+  display: none;
+  overflow: scroll;
+  max-height: calc(100vh - 100px);
+  .fa-times-circle{
+    position: fixed;
+    top: 110px;
+    right: 21%;
+    font-size: 20px;
+    color: #f16161;
+  }
   .ListWrapper{
-    border: 2px solid $tea_color;
-    border-radius: 10px;
+    padding: 10px;
+    border: 3px solid brown;
+    border-radius: 0 50px 50px 0;
+    margin-bottom: 5px;
+    position: relative;
+    .fa-circle{
+      position: absolute;
+      top:10px;
+      left: 5px;
+      color: $tea_color;
+      font-size: 17px;
+    }
     .List{
       @include flex_box(top, top);
-      @include w_h(70%, 100px);
+      @include w_h(100%, 100px);
       margin: 0 auto;
       dl {
         margin:0px auto;
@@ -100,31 +126,54 @@
         margin-bottom: 10px;
         i{
           font-size: 40px;
+          color: $tea_color;
         }
       }
       &__detail{
         font-size: 20px;
       }
       &__evaluation{
-        height: 49px;
-        margin: 0;
+        @include flex_box(top, center);
+        height: 100px;
         &--detail{
-          font-size: 30px;
+          font-size: 25px;
+          font-weight: bold;
+          text-align: center;
         }
         &--label{
-          font-size: 20px;
+          i{
+            margin-right: 5px;
+            color: $tea_color;
+            font-size: 20px;
+          }
         }
       }
     }
     .MemoArea{
       @include flex_box(top, top);
-      @include w_h(70%, 50px);
+      @include w_h(100%, 50px);
       margin: 0 auto;
       &__label{
+        @include flex_box(top, center);
         margin-right: 20px;
         i {
-          font-size: 50px;
+          font-size: 40px;
           transform: scaleX(-1);
+        }
+        a{
+          display: block;
+          padding: 10px;
+          margin: 0 20px;
+          border: 1px solid #fff;
+          background-color: $tea_color;
+          font-size: 20px;
+          color: #fff;
+          text-decoration: none;
+          height: 40px;
+          line-height: 20px;
+          border-radius: 10px;
+          width: 85px;
+          text-align: center;
         }
       }
       &__detail{
@@ -134,4 +183,15 @@
       }
     }
   }
+}
+// モーダルウィンドウ用スタイル
+#modal-overlay{
+	z-index:1;
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:120%;
+	background-color:rgba(0,0,0,0.6);
 }
