@@ -79,6 +79,9 @@
           width: 100%;
         }
       }
+      .BtnStyle:hover{
+        opacity: 0.8;
+      }
     }
   }
 
@@ -162,6 +165,9 @@
           border-radius: 5px;
           background-color: $ivory;
           color: brown;
+        }
+        input:hover{
+          opacity: 0.8;
         }
       }
     }

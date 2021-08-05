@@ -19,12 +19,18 @@
         background-color: #fff;
         margin: 15px;
         box-shadow: 10px 10px 3px 0px $tea_color;
-
+        position: relative;
         h2{
           font-size: 20px;
           padding: 5px 15px 5px 15px;
           width: 100%;
           border-bottom: 1px dotted $tea_color;
+        }
+        & > i{
+          position: absolute;
+          color: #9c9c9c;
+          right: 15px;
+          top: 10px;
         }
         &__detail{
           @include flex_box(top, center);
@@ -56,6 +62,9 @@
             text-align: center;
             line-height: 40px;
             text-decoration: none;
+          }
+          &--text:hover{
+            opacity: 0.8;
           }
         }
       }
@@ -93,6 +102,9 @@
     right: 21%;
     font-size: 20px;
     color: #f16161;
+  }
+  .fa-times-circle:hover{
+    opacity: 0.8;
   }
   .ListWrapper{
     padding: 10px;
@@ -174,6 +186,9 @@
           border-radius: 10px;
           width: 85px;
           text-align: center;
+        }
+        i:hover, a:hover{
+          opacity: 0.8;
         }
       }
       &__detail{
