@@ -32,6 +32,9 @@
           right: 15px;
           top: 10px;
         }
+        & > i:hover{
+          color: #333;
+        }
         &__detail{
           @include flex_box(top, center);
           margin-bottom: 15px;
