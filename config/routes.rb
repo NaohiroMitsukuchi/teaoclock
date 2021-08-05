@@ -4,14 +4,14 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
   } 
-  
-  devise_scope :user do
-    # get "user/:id", :to => "users/registrations#detail"
-    # get "signup", :to => "users/registrations#new"
-    # get "login", :to => "users/sessions#new"
-    # get "logout", :to => "users/sessions#destroy"
-  end
 
   root 'tops#index'
-  resources :my_teas, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  resources :my_teas, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'logs_show', defaults: { format: 'json' }
+    end
+    resources :drop_conditions, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
+
 end

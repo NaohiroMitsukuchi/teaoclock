@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CountryTest < ActiveSupport::TestCase
+class LeafTypeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

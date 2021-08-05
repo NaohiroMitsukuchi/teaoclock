@@ -1,0 +1,115 @@
+= render partial: "tops/title_bar"
+
+.DropConditionRegistrationPage
+  .ConditionSelectArea
+    .ConditionSelectArea__number
+      .ConditionSelectArea__number--icon= icon("fas", "users")
+      .ConditionSelectArea__selectBox 
+        %select{:name => "number_of_people", id: "number_of_people_select"}
+          %option{:value => "0"}  人数を選択
+          %option{:value => "1"}  1人
+          %option{:value => "2"}  2人
+          %option{:value => "3"}  3人
+          %option{:value => "4"}  4人
+          %option{:value => "5"}  5人
+          %option{:value => "6"}  6人
+          %option{:value => "7"}  7人
+          %option{:value => "8"}  8人
+          %option{:value => "9"}  9人
+          %option{:value => "10"}  10人
+        
+    .ConditionSelectArea__teaType
+      .ConditionSelectArea__teaType--icon= icon("fas", "coffee")
+      .ConditionSelectArea__selectBox 
+        = collection_select :tea_type, :tea_type_id, @tea_types, :id, :name, {prompt: "飲み方を選択"}, {id: "tea_type_select"}
+
+  .ConditionResultArea
+    .ConditionResultArea__result
+      .ConditionResultArea__result--label 必要な湯量
+      .ConditionResultArea__result--arrow= icon("fas", "arrow-right")
+      .ConditionResultArea__result--text
+        %span#water_quantity  150
+        ml
+    .ConditionResultArea__result
+      .ConditionResultArea__result--label 茶葉の重さ
+      .ConditionResultArea__result--arrow= icon("fas", "arrow-right")
+      .ConditionResultArea__result--text
+        %span#leaf_quantity 2.5
+        g
+  .StopWatchArea
+    %h2 蒸らし時間
+    .CountDownArea
+      #CountDownArea__reduceTime= icon("fas", "caret-left")
+      - if @my_tea.leaf_type_id == 1 
+        .CountDownArea__timer 150
+      - else 
+        .CountDownArea__timer 180
+      #CountDownArea__increaseTime= icon("fas", "caret-right")
+    .ButtonArea
+      .ButtonArea__start.BtnStyle
+        .BtnStyle__icon= icon("far", "play-circle")
+        .BtnStyle__text start
+      .ButtonArea__reset.BtnStyle
+        .BtnStyle__icon= icon("fas ", "hourglass-start")
+        .BtnStyle__text reset
+
+  .FormArea
+    .FormArea__title
+      .removeBtn= icon("fas", "times")
+      %h2 ログに登録
+    = form_with(model: [@my_tea, @drop_condition], local: true) do |f|
+      #FormItemBox
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :time, "蒸らし時間"
+          %dd.FormItem__detail
+            = f.text_field :time, {id: "form_time"}
+            %span 秒
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :water_quantity, "湯量"
+          %dd.FormItem__detail
+            = f.text_field :water_quantity, {id: "form_water_quantity"}
+            %span 秒
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :leaf_quantity, "茶葉量"
+          %dd.FormItem__detail
+            = f.text_field :leaf_quantity, {id: "form_leaf_quantity"}
+            %span 秒
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :number_of_people, "人数"
+          %dd.FormItem__detail
+            = f.text_field :number_of_people, {id: "form_number_of_people"}
+            %span 人
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :tea_type_id, "飲み方"
+          %dd.FormItem__detail
+            = f.collection_select(:tea_type_id, @tea_types, :id, :name, {prompt: "選択してください"}, {id: "form_tea_type"})
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :temperature, "温度"
+          %dd.FormItem__detail
+            = f.text_field :temperature,{value: "100"}
+            %span ℃
+      .FormItem
+        %dl
+          %dt.FormItem__label
+            = f.label :evalution, "評価(1-10点)"
+          %dd.FormItem__detail
+            = f.text_field :evalution
+            %span 点
+      .FormItem
+        = f.text_field :note,{placeholder: "メモ", class: "FormItem__memo"}
+      .FormItem
+        %p.FormItem__btn
+          = f.submit "登録"
+

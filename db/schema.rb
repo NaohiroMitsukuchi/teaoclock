@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_052149) do
+ActiveRecord::Schema.define(version: 2021_07_26_081204) do
+
+  create_table "drop_conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "time", null: false
+    t.integer "water_quantity", null: false
+    t.float "leaf_quantity", null: false
+    t.integer "tea_type_id", null: false
+    t.integer "number_of_people", null: false
+    t.integer "temperature", null: false
+    t.string "note"
+    t.integer "evaluation"
+    t.bigint "my_tea_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["my_tea_id"], name: "index_drop_conditions_on_my_tea_id"
+  end
 
   create_table "my_tea_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "url", null: false
@@ -23,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_052149) do
   create_table "my_teas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "product_name", null: false
     t.string "campany"
-    t.integer "tea_type_id", null: false
+    t.integer "leaf_type_id", null: false
     t.string "origin"
     t.string "flavor"
     t.bigint "user_id", null: false
@@ -45,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_052149) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "drop_conditions", "my_teas"
   add_foreign_key "my_tea_images", "my_teas"
   add_foreign_key "my_teas", "users"
 end

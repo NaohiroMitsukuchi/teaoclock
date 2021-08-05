@@ -2,6 +2,10 @@ class MyTeasController < ApplicationController
 
   def index
     @my_teas = current_user.my_teas
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
   def new
     @my_tea = MyTea.new
@@ -17,8 +21,12 @@ class MyTeasController < ApplicationController
     end
   end
 
+  def logs_show
+    @drop_condition_logs = DropCondition.where(my_tea_id: params[:card_index])
+  end
+
   private
   def my_tea_params
-    params.require(:my_tea).permit(:product_name,:campany,:tea_type_id,:origin,:flavor,my_tea_images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:my_tea).permit(:product_name,:campany,:leaf_type_id,:origin,:flavor,my_tea_images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
 end

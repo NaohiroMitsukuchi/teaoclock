@@ -1,5 +1,6 @@
 .Card
   %h2=  my_tea.product_name
+  = icon("fas", "pencil-alt")
   .Card__detail
     = image_tag 'sample/remon_tea.png', alt: 'My紅茶', height: '150', width: '150', class: 'Card__detail--image'
     .Card__detail--text
@@ -9,7 +10,7 @@
 
       %dl
         %dt 茶葉の種類: 
-        %dd= my_tea.tea_type.name
+        %dd= my_tea.leaf_type.name
 
       %dl
         %dt 産地: 
@@ -20,6 +21,6 @@
         %dd= my_tea.flavor
 
   .Card__btn
-    .Card__btn--text 履歴
-    .Card__btn--text  淹れる
-
+    .Card__btn--text.my_tea_log{data: {index: "#{my_tea_counter}"}} 履歴
+    = link_to "淹れる", new_my_tea_drop_condition_path(my_tea.id),{class: "Card__btn--text"}
+  

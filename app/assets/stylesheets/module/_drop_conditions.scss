@@ -1,0 +1,175 @@
+@import "../mixin";
+
+.DropConditionRegistrationPage{
+  padding-top: 100px;
+  .ConditionSelectArea{
+    width: 70%;
+    margin: 0 auto 50px;
+    @include flex_box(space-around, center);
+    font-size: 28px;
+    &__number{
+      @include flex_box(center, center);
+      &--icon{
+        i {
+          margin-right: 10px;
+          font-size: 50px;
+        }
+      }
+    }
+    &__teaType{
+      @include flex_box(center, center);
+      &--icon{
+        i{
+          margin-right: 10px;
+          font-size: 50px;
+        }
+      }
+    }
+    &__selectBox{
+      select{
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #fff;
+      }
+    }
+  }
+
+  .ConditionResultArea{
+    background-color: rgba(206, 130, 54, 0.4);
+    padding: 20px 0;
+    margin: 0 auto;
+    @include flex_box(space-around, center);
+    &__result{
+      font-size: 30px;
+      @include flex_box(center, center);
+      &--label{
+        margin-right: 15px;
+      }
+      &--arrow{
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .StopWatchArea {
+    background-color: rgba(206, 130, 54, 0.8);
+    border: 1px solid $tea_color;
+    h2 {
+      margin-top: 15px;
+      font-size: 40px;
+      text-align: center;
+      color: #fff;
+    }
+    .CountDownArea {
+      @include flex_box(center, center);
+      font-size: 150px;
+      color: #fff;
+      text-align: center;
+      &__timer{
+        margin: 0 90px;
+      }
+    }
+    .ButtonArea {
+      @include flex_box(center, center);
+      .BtnStyle{
+        margin: 0 auto;
+        @include button_style();
+        &__text{
+          width: 100%;
+        }
+      }
+      .BtnStyle:hover{
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .FormArea{
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 25%;
+    width: 50%;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 10px;
+    border: 1px solid $tea_color;
+    border-radius: 20px;
+    color: brown;
+    &__title{
+      position: relative;
+      .removeBtn{
+        position: absolute;
+        right: 20px;
+        top: -10px;
+        font-size: 25px;
+        color: brown;
+      }
+      .removeBtn:hover{
+        opacity: 0.5;
+      }
+      h2{
+        font-size: 20px;
+        text-align: center;
+        font-weight: 500;
+        margin: 15px;
+      }
+    }
+    .FormItem{
+      margin: 10px auto;
+      font-size: 18px;
+      dl{
+        @include flex_box(top, center);
+      }
+      &__label{
+        margin-bottom: 5px;
+        width: 50%;
+        text-align: center;
+        right: 5px;
+      }
+      &__detail{
+        width: 30%;
+        position: relative;
+        input{
+          padding: 3px;
+          width: 100%;
+          text-align: center;
+        }
+        span{
+          position: absolute;
+          top: 3px;
+          left: 85%;
+        }
+        select{
+          width: 100%;
+          display: block;
+          padding: 3px;
+        }
+      }
+      &__memo{
+        margin: 0 auto;
+        width: 73%;
+        display: block;
+        padding: 5px;
+        height: 40px;
+      }
+      &__btn{
+        @include flex_box(center, center);
+        input{
+          width: 100px;
+          margin: 10px auto;
+          text-align: center;
+          padding: 5px;
+          border: 1px solid brown;
+          border-radius: 5px;
+          background-color: $ivory;
+          color: brown;
+        }
+        input:hover{
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

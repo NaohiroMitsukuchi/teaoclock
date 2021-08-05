@@ -1,22 +1,95 @@
 $(document).on('turbolinks:load', function(){
-// ボタンを定義
+// 定数、変数の定義
+  // 湯量、茶葉量計算用
+  let waterQuantity = $('#water_quantity').text();
+  let leafQuantity = $('#leaf_quantity').text();
+  let numberOfPeople = $('#number_of_people_select').val();
+  let teaTypeIndex = $('#tea_type_select').val();
+
+  // ストップウォッチ用
   const startBtn  = $(".ButtonArea__start");
   const resetBtn  = $(".ButtonArea__reset");
-  const detailBtn = $(".ButtonArea__detail");
-  let timerMin    = $('.CountDownArea__timertext--min');
+  let timerSec    = $(".CountDownArea__timer").text();
   let elapsedTime = 0;
-  let resetMin    = $('.CountDownArea__timertext--min').text();
+  let resetSec    = $(".CountDownArea__timer").text();
   let intervalId; 
-
-  // タイマーの書き換えの関数
+  
+// 関数定義
+  // タイマー終了後にログ登録フォームを出現させる関数
+  const showForm = () => {
+    $('.FormArea').css("display", "block");
+    $('#form_number_of_people').val(numberOfPeople);
+    $('#form_tea_type').val(teaTypeIndex);
+    $('#form_water_quantity').val(waterQuantity);
+    $('#form_leaf_quantity').val(leafQuantity);
+    $('#form_time').val(resetSec);
+  }
+  // ストップウォッチ稼働中のタイマーの書き換えの関数
   const rewiteTimer = (intervalId, elapsedTime) => {
-    remainTime = resetMin - elapsedTime;
+    remainTime = timerSec - elapsedTime;
     if (remainTime < 0){
       clearInterval(intervalId);
+      showForm();
     }else{
-      timerMin.html(remainTime);
+      $(".CountDownArea__timer").html(remainTime);
     }
   }
+  // 湯量、茶葉量書き換えの関数
+  const rewriteQuantity = (numberOfPeople, teaTypeIndex) => {
+    if(teaTypeIndex == 0){
+      waterQuantity = 150 * numberOfPeople
+      leafQuantity = 2.5 * numberOfPeople
+    }else if(teaTypeIndex == 1 || teaTypeIndex == 2){
+      if(numberOfPeople == 0){
+        waterQuantity = 150
+        leafQuantity = 2.5
+      }else{
+        waterQuantity = 150 * numberOfPeople
+        leafQuantity = 2.5 * numberOfPeople
+      }
+    }else if(teaTypeIndex == 3 || teaTypeIndex == 4){
+      if(numberOfPeople == 0){
+        waterQuantity = 75
+        leafQuantity = 2.5
+      }else{
+        waterQuantity = 75 * numberOfPeople
+        leafQuantity = 2.5 * numberOfPeople
+      }
+    }
+    $("#water_quantity").html(waterQuantity);
+    $("#leaf_quantity").html(leafQuantity);
+  }
+  // 定義した変数の値をリセットして選択肢を未選択にする
+  const resetSelect = () => {
+    waterQuantity = 150
+    leafQuantity = 2.5
+    numberOfPeople = 0
+    teaTypeIndex = 0
+    multipleRatio = 1
+    $('#number_of_people_select').val(0);
+    $('#tea_type_select').val(null);
+    $("#water_quantity").html(waterQuantity);
+    $("#leaf_quantity").html(leafQuantity);
+  }
+  
+// 人数選択時の挙動
+  $('#number_of_people_select').on('change', function(){
+    numberOfPeople = $(this).val();
+    if(numberOfPeople == 0){
+      resetSelect();
+    }else{
+      rewriteQuantity(numberOfPeople, teaTypeIndex);
+    } 
+  });
+  // 飲み方選択時の挙動
+  $('#tea_type_select').on('change', function(){
+    teaTypeIndex = $(this).val();
+    if(teaTypeIndex == 0){
+      resetSelect();
+    }else{
+      rewriteQuantity(numberOfPeople, teaTypeIndex);
+    } 
+  });
 
 // ボタンクリック時の挙動
   // カウントダウン開始
@@ -26,20 +99,35 @@ $(document).on('turbolinks:load', function(){
         elapsedTime ++;
         rewiteTimer(intervalId, elapsedTime);
       }, 1000);
-    };
+    }
+    $('#CountDownArea__reduceTime').css('display', 'none');
+    $('#CountDownArea__increaseTime').css('display', 'none');
   });
 
-  
   // タイマーリセット
   resetBtn.on('click', function(){
     clearInterval(intervalId);
     elapsedTime = 0;
     intervalId = null;
-    timerMin.html(resetMin);
+    timerSec = resetSec;
+    $(".CountDownArea__timer").html(resetSec);
+    $('#CountDownArea__reduceTime').css('display', 'block');
+    $('#CountDownArea__increaseTime').css('display', 'block');
   });
-  
-  // 詳細設定
-  detailBtn.on('click', function(){
-    console.log("detail");
+
+  // タイマーの増減ボタン
+  $('#CountDownArea__reduceTime').on('click', function(){
+    timerSec --;
+    resetSec = timerSec;
+    $(".CountDownArea__timer").html(timerSec);
+    });
+  $('#CountDownArea__increaseTime').on('click', function(){
+    timerSec ++;
+    resetSec = timerSec;
+    $(".CountDownArea__timer").html(timerSec);
+    });
+  // フォーム削除ボタン
+  $('.removeBtn').on('click', function(){
+    $('.FormArea').css("display", "none");
   });
-})
+});

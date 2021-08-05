@@ -26,6 +26,9 @@
       .Content__box
         = image_tag 'note.png', alt: 'タイマーのアイコン', class: 'Content__box--image' 
         .Content__box--text 淹れた条件をログとして残そう！ドロップの条件を保存し、淹れた紅茶を評価しよう！メモ機能もあるよ！
-  = link_to "はじめる", new_user_registration_path, class: "StartBtn"
-  .FotterArea
+  - unless user_signed_in?
+    = link_to "はじめる", new_user_registration_path, class: "StartBtn"
+  - else
+    = link_to "はじめる", new_my_tea_path, class: "StartBtn"
+    .FotterArea
 

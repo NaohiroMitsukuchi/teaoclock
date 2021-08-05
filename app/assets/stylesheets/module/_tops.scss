@@ -1,5 +1,40 @@
 @import "../mixin";
 
+.Balloon{
+  position: fixed;
+  top: 50px;
+  right: 30px;
+  display: none;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  font-size: 18px;
+  background: #646464;
+  &__link{
+    color: #fff;
+    margin: 5px 0;
+    padding: 0;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+
+  }
+  &__link:hover{
+    text-decoration: underline;
+  }
+}
+
+.Balloon:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-bottom: 15px solid #646464;
+}
+
 .TitleBar{
   position: fixed;
   width: 100vw;
@@ -24,7 +59,7 @@
     line-height: 50px;
     position: fixed;
     right: 0px;
-    padding: 0 8px;
+    padding: 0 15px;
     &--btn{
       text-decoration: none;
       padding: 0 10px;
@@ -32,6 +67,17 @@
     &--btn:visited, &--btn:hover,
     &--btn:active {
       color: inherit;
+    }
+    .IconWrapper{
+      @include flex_box(top,center);
+      i{
+        font-size: 30px;
+        line-height: 50px;
+        margin-right: 10px;
+      }
+      &__nickname{
+        font-size: 25px;
+      }
     }
   }
 }
@@ -102,56 +148,8 @@
     background-color: rgb(255, 255, 251);
     color: rgb(223, 116, 116); 
     text-decoration: none;
-
+  }
+  .StartBtn:hover{
+    opacity: 0.8;
   }
 }
-
-
-// .StopWatchArea {
-  
-//   background-color: $ivory;
-//   .TeaSelectArea {
-//     .ConditionSelectArea{
-//       &__leaftype{
-//         font-size: 100px;
-//       }
-//     }
-//   }
-//   .CountDownArea {
-//     @include flex_box(center, center);
-//     font-size: 200px;
-//     color: $tea_color;
-//     text-align: center;
-//   }
-//   .ButtonArea {
-//     @include flex_box(center, center);
-//     &__start {
-//       @include button_style;
-//       &--icon {
-
-//       }
-//       &--text {
-//       }
-//     }
-//     &__reset {
-//       @include button_style;
-
-//       &--icon {
-
-//       }
-//       &--text {
-        
-//       }
-//     }
-//     &__detail {
-//       @include button_style;
-
-//       &--icon {
-
-//       }
-//       &--text {
-        
-//       }
-//     }
-//   }
-// }

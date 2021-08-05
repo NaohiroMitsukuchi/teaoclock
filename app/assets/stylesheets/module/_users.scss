@@ -63,6 +63,9 @@
       &__link:active {
         color: inherit;
       }
+      &link:hover{
+        opacity: 0.8;
+      }
     }
   }
 }
