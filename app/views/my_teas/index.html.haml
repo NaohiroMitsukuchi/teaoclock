@@ -1,8 +1,13 @@
 = render partial: "tops/title_bar"
 .MyPage 
+  = render partial: "side_nav"
   .MyTeasArea
-    %h1 ---- My紅茶 ----
+    %h1 My紅茶
     .MyTeaCards
       = render partial: "my_tea_card", collection: @my_teas, as: "my_tea"
+  .UserInfoArea
+ 
+  .UserLogoutArea
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "UserLogoutArea__btn" 
 
 

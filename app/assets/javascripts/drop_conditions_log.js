@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function(){
                 </div>`
     $('.DropConditionLists').append(html);
   };
-// 紅茶ログのモーダルウィンドウ用を表示
+// 紅茶ログのモーダルウィンドウオーバーレイを挿入する関数
   const buildModalOverlay = () =>{
     let html = `<div id="modal-overlay"></div>
                 <div class="DropConditionLists">
@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', function(){
     $("body").append(html);
     $("#modal-overlay").fadeIn("slow");
   };
-// 紅茶ログのモーダルウィンドウ用を削除
+// 紅茶ログのモーダルウィンドウを削除する関数
   const rempveModalWindow = ()=>{
     $("#modal-overlay,#modal-close").unbind().click(function(){
       $(".DropConditionLists, #modal-overlay").fadeOut("slow",function(){
@@ -90,6 +90,6 @@ $(document).on('turbolinks:load', function(){
     .fail(function(){
       alert('error');
     });
-  })
+  });
 });
 
