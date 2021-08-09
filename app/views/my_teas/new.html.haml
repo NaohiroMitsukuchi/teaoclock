@@ -4,37 +4,19 @@
   .FormArea
     = form_with model: @my_tea, local: true do |f|
       .FormItem
-        %dl
-          %dt.FormItem__label
-            = f.label :product_name, "商品名"
-            %span.required 必須
-          %dd.FormItem__detail
-            = f.text_area :product_name
+        = f.text_field :product_name, {class: "FormItem__detail", placeholder: "商品名 [必須]"}
+        = icon("fab", "envira")
       .FormItem
-        %dl
-          %dt.FormItem__label
-            = f.label :campany, "会社名"
-          %dd.FormItem__detail
-            = f.text_field :campany
+        = f.text_field :campany, {class: "FormItem__detail", placeholder: "会社名"}
+        = icon("far", "building")
       .FormItem
-        %dl
-          %dt.FormItem__label
-            = f.label :leaf_type, "茶葉の種類"
-            %span.required 必須
-          %dd.FormItem__detail
-            = f.collection_select(:leaf_type_id, LeafType.all, :id, :name, {prompt: "選択してください"}, {})
+        = f.collection_select(:leaf_type_id, LeafType.all, :id, :name, {prompt: "茶葉の種類を選択 [必須]"}, {class: "FormItem__detail"})
+        = icon("far", "hand-pointer")
       .FormItem
-        %dl
-          %dt.FormItem__label
-            = f.label :origin, "産地"
-          %dd.FormItem__detail
-            = f.text_field :origin
+        = f.text_field :origin, {class: "FormItem__detail", placeholder: "産地"}
+        = icon("fas", "globe-europe")
       .FormItem
-        %dl
-          %dt.FormItem__label
-            = f.label :flavor, "フレーバー"
-          %dd.FormItem__detail
-            = f.text_field :flavor
-      .FormItem
-        %p.FormItem__btn
-          = f.submit "登録する"
+        = f.text_field :flavor, {class: "FormItem__detail", placeholder: "フレーバー"}
+        = icon("far", "lemon")
+      %p.FormItem__btn
+        = f.submit "登録する"
