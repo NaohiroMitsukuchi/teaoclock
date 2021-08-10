@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  before_action :move_to_root, only: [:logout]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -17,8 +18,14 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  def logout
+  end
 
-  # protected
+  private
+
+  def move_to_root
+    redirect_to root_path unless user_signed_in?
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

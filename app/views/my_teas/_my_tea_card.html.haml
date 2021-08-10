@@ -2,22 +2,22 @@
   %h2=  my_tea.product_name
   = icon("fas", "pencil-alt")
   .Card__detail
-    = image_tag 'sample/remon_tea.png', alt: 'My紅茶', height: '150', width: '150', class: 'Card__detail--image'
+    = image_tag 'sample/remon_tea.png', alt: 'My紅茶', height: '140', width: '140', class: 'Card__detail--image'
     .Card__detail--text
       %dl
-        %dt 会社名: 
+        %dt= icon("far", "building")
         %dd= my_tea.campany
 
       %dl
-        %dt 茶葉の種類: 
+        %dt= icon("fab", "envira")
         %dd= my_tea.leaf_type.name
 
       %dl
-        %dt 産地: 
+        %dt= icon("fas", "globe-europe")
         %dd= my_tea.origin
 
       %dl
-        %dt フレーバー: 
+        %dt= icon("far", "lemon")
         %dd= my_tea.flavor
 
   .Card__btn

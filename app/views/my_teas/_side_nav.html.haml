@@ -1,0 +1,14 @@
+.SideBar
+  %ul.Nav
+    = link_to new_my_tea_path, class: "Nav__content" do
+      %li.Nav__content--name My紅茶登録
+      = icon('fas', 'angle-double-right')
+    = link_to my_teas_path, class: "Nav__content" do
+      %li.Nav__content--name My紅茶一覧
+      = icon('fas', 'angle-double-right')
+    = link_to edit_user_registration_path, class: "Nav__content", id: "edit_user_info" do
+      %li.Nav__content--name アカウント情報変更
+      = icon('fas', 'angle-double-right')
+    = link_to users_logout_path, class: "Nav__content" do
+      %li.Nav__content--name ログアウト
+      = icon('fas', 'angle-double-right') 
