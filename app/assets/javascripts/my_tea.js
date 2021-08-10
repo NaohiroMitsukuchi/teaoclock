@@ -28,12 +28,4 @@ $(document).on('turbolinks:load', function(){
       icon.css('color', 'rgba(210, 133, 56, 0.2)');
     }
   });
-
-// マイページサイドナビゲーション選択時の挙動
-  $("#edit_user_info").on('click', function(){
-  });
-  $("#log_out_btn").on('click', function(){
-    $('.MyPage .MyTeasArea').css('display', 'none');
-    $('.MyPage .UserLogoutArea').css('display', 'block');
-  });
 });

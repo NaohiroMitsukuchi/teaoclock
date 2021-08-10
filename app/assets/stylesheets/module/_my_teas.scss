@@ -88,7 +88,6 @@
     border:1px solid $tea_color;
     width: calc(100% - 280px);
     height: 150px;
-    display: none;
     padding: 50px 0;
     &__btn{
       display: block;
@@ -102,6 +101,67 @@
       text-align: center;
       color: #fff;
       }
+  }
+  // マイページのユーザー情報変更ページののスタイル
+  .UserEditPage{
+    color: #333;
+    width: calc(100% - 280px);
+    background-color: $ivory;
+    border:1px solid $tea_color;
+    padding-bottom: 30px;
+    h1{
+      text-align: center;
+      font-size: 25px;
+      padding: 10px;
+      background-color: rgba(210, 133, 56, 0.2);
+      border-bottom: 2px solid brown;
+      margin-bottom: 20px;
+    }
+    .FormArea{
+      width: 70%;
+      font-size: 20px;
+      margin: 0 auto;
+      &__errorMessages {
+        font-size: 15px;
+        color: red;
+      }
+      .FormItem {
+        width: 100%;
+        margin-bottom: 20px;
+        &__label{
+          margin-bottom: 10px;
+        }
+        &__detail{
+          & input{
+            display: block;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 48px;
+            padding: 0 16px;
+            margin: 0 auto;
+          }
+        }
+        &__btn{
+          display: block;
+          width: 200px;
+          height: 50px;
+          margin: 30px auto 0px;
+          & input {
+            width: 100%;
+            appearance: none;
+            background: $tea_color;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 }
 // マイページサイドナビゲーションのスタイル

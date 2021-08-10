@@ -1,0 +1,5 @@
+= render partial: "tops/title_bar"
+.MyPage 
+  = render partial: "my_teas/side_nav"
+  .UserLogoutArea
+    = link_to "ログアウトする", destroy_user_session_path, method: :delete, class: "UserLogoutArea__btn" 
