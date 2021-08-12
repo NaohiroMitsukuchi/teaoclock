@@ -3,6 +3,12 @@
 .MyTeaRegistrationPage
   .FormArea
     = form_with model: @my_tea, local: true do |f|
+      .FormImage
+        #previews
+          = f.fields_for :my_tea_images do |i|
+            %label 
+              = icon("fas", "camera-retro")
+              = i.file_field :url, class: 'FormImage__uploader'
       .FormItem
         = f.text_field :product_name, {class: "FormItem__detail", placeholder: "商品名 [必須]"}
         = icon("fab", "envira")

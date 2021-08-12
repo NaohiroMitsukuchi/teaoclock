@@ -1,6 +1,24 @@
 $(document).on('turbolinks:load', function(){
+// 画像プレビュー機能
+  // 挿入するimageタグを定義
+  const buildImage = (blobUrl) => {
+    const html = `<div class="preview">
+                    <img  width="140" height="140" src="${blobUrl}">
+                  </div>`;
+    return html
+  };
+  $('.FormImage').on('change', '.FormImage__uploader', function(e){
+    // 画像url取得
+    const file = e.target.files[0];
+    const blobUrl = window.URL.createObjectURL(file);
+    // 画像挿入フォームを隠す
+    $(this).parent().hide();
+    // プレビューの表示
+    $('#previews').append(buildImage(blobUrl));
+  });
+
 //マイ紅茶登録ページ 
-  $('#my_tea_leaf_type_id').on('change', function(){
+  $('#my_tea_leaf_type_id').on('change', function(e){
     $(this).css("color", "#000");
   });
 

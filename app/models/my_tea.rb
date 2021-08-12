@@ -1,8 +1,9 @@
 class MyTea < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :leaf_type
-  # accepts_nested_attributes_for :my_tea_images, allow_destroy: true
-  # has_many :my_tea_images
+  has_many :my_tea_images
+  accepts_nested_attributes_for :my_tea_images, allow_destroy: true
+  validates_associated :my_tea_images
   belongs_to :leaf_type
   belongs_to :user
   has_many :drop_conditions
