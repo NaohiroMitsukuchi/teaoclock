@@ -9,7 +9,7 @@ class MyTeasController < ApplicationController
   end
   def new
     @my_tea = MyTea.new
-    # @my_tea.my_tea_images.new
+    @my_tea.my_tea_images.new
   end
 
   def create

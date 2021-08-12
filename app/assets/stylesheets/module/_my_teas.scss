@@ -204,6 +204,22 @@
   .FormArea{
     width: 50%;
     margin: 0 auto;
+    .FormImage{
+      @include flex_box(center, center);
+      .FileWrapper__uploader{
+        display: none;
+      }
+      .fa-camera-retro{
+        @include w_h(140px, 140px);
+        border: 1px solid #aaa;
+        font-size: 50px;
+        line-height: 140px;
+        text-align: center;
+        color: #333;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
     .FormItem {
       position: relative;
       width: 100%;
