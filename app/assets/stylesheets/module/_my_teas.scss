@@ -36,13 +36,13 @@
           width: 100%;
           border-bottom: 1px dotted $tea_color;
         }
-        & > i{
+        & .fa-pencil-alt{
           position: absolute;
           color: #9c9c9c;
           right: 15px;
           top: 10px;
         }
-        & > i:hover{
+        & .fa-pencil-alt:hover{
           color: #333;
         }
         &__detail{
@@ -206,18 +206,33 @@
     margin: 0 auto;
     .FormImage{
       @include flex_box(center, center);
-      .FileWrapper__uploader{
-        display: none;
-      }
-      .fa-camera-retro{
-        @include w_h(140px, 140px);
-        border: 1px solid #aaa;
-        font-size: 50px;
-        line-height: 140px;
-        text-align: center;
-        color: #333;
-        border-radius: 5px;
-        cursor: pointer;
+      #Previews{
+        @include flex_box(space-around, center);
+        flex-wrap: wrap;
+        .FileWrapper__uploader{
+          display: none;
+        }
+        .fa-camera-retro{
+          @include w_h(140px, 140px);
+          border: 1px solid #aaa;
+          font-size: 50px;
+          line-height: 140px;
+          text-align: center;
+          color: #333;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .Preview{
+          position: relative;
+          margin: 5px;
+          &__removeBtn{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            color: #f16161;
+            background-color: #fff;
+          }
+        }
       }
     }
     .FormItem {

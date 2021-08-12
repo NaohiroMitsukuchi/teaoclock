@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     collection do
       get 'logs_show', defaults: { format: 'json' }
     end
-    resources :drop_conditions, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :drop_conditions, only: [:new, :create, :edit, :update, :destroy]
   end
 end
