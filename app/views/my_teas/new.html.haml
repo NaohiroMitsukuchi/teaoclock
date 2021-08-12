@@ -4,11 +4,11 @@
   .FormArea
     = form_with model: @my_tea, local: true do |f|
       .FormImage
-        #previews
+        #Previews
           = f.fields_for :my_tea_images do |i|
-            %label 
+            %label.FileWrapper
               = icon("fas", "camera-retro")
-              = i.file_field :url, class: 'FormImage__uploader'
+              = i.file_field :url, class: 'FileWrapper__uploader'
       .FormItem
         = f.text_field :product_name, {class: "FormItem__detail", placeholder: "商品名 [必須]"}
         = icon("fab", "envira")

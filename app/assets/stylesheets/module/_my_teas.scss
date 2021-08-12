@@ -206,7 +206,7 @@
     margin: 0 auto;
     .FormImage{
       @include flex_box(center, center);
-      &__uploader{
+      .FileWrapper__uploader{
         display: none;
       }
       .fa-camera-retro{
