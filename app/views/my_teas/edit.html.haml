@@ -37,4 +37,5 @@
         = f.text_field :flavor, {class: "FormItem__detail", placeholder: "フレーバー"}
         = icon("far", "lemon")
       %p.FormItem__btn
-        = f.submit "登録する"
+        = f.submit "変更する"
+    = link_to "削除する", my_tea_path, id: "MyTeaDeleteBtn", method: :delete

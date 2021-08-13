@@ -34,6 +34,16 @@ class MyTeasController < ApplicationController
     end
   end
 
+  def destroy
+    @my_tea = MyTea.find(params[:id])
+    binding.pry
+    if @my_tea.destroy
+      redirect_to my_teas_path
+    else
+      render :edit
+    end
+  end
+
   def logs_show
     @drop_condition_logs = DropCondition.where(my_tea_id: params[:card_index])
   end

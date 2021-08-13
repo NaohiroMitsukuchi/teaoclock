@@ -298,6 +298,18 @@
       border-style: solid;
       border-color: #da3c41;
     }
+    #MyTeaDeleteBtn{
+      display: block;
+      text-decoration: none;
+      color: #f16161;
+      font-size: 15px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    #MyTeaDeleteBtn:hover{
+      opacity: 0.8;
+      font-size: 17px;
+    }
   }
 }
 // マイページ紅茶履歴

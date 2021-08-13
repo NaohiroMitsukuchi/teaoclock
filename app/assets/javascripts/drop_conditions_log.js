@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function(){
 
 // 紅茶ログをモーダルウィンドウで表示するイベント
   $('.my_tea_log').on('click', function(){
-    let card_index = $(this).data('index') + 1;
+    let card_index = $(this).data('index');
     $.ajax({
       type: 'GET',
       url: '/my_teas/logs_show',
@@ -78,6 +78,7 @@ $(document).on('turbolinks:load', function(){
       dataType: 'json'
     })
     .done(function(logs){
+      console.log(logs);
       if(logs.length != 0){
         buildModalOverlay();
         $.each(logs, function(index, log){
