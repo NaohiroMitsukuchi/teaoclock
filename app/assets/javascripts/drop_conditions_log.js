@@ -36,8 +36,11 @@ $(document).on('turbolinks:load', function(){
                   </div>
                   <dl class="MemoArea">
                     <dd class="MemoArea__label">
-                      <i class="far fa-edit"></i>
-                      <a class="MemoArea__label--dropBtn" href="/">淹れる</a>
+                      <a class="MemoArea__label--editBtn" href="/my_teas/${log.my_tea_id}/drop_conditions/${log.id}/edit">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a class="MemoArea__label--btn" href="/my_teas/${log.my_tea_id}/drop_conditions/${log.id}/drop">淹れる</a>
+                      <a class="MemoArea__label--btn" rel="nofollow" data-method="delete" href="/my_teas/${log.my_tea_id}/drop_conditions/${log.id}">削除</a>
                       <i class="far fa-comment-dots"></i>
                     </dd>
                     <dt class="MemoArea__detail">${log.note}
@@ -46,6 +49,7 @@ $(document).on('turbolinks:load', function(){
                 </div>`
     $('.DropConditionLists').append(html);
   };
+  // <a class="MemoArea__label--dropBtn" href="/my_teas/${log.my_tea_id}/drop_conditions/${log.id}/edit">淹れる</a>
 // 紅茶ログのモーダルウィンドウオーバーレイを挿入する関数
   const buildModalOverlay = () =>{
     let html = `<div id="modal-overlay"></div>
@@ -78,7 +82,6 @@ $(document).on('turbolinks:load', function(){
       dataType: 'json'
     })
     .done(function(logs){
-      console.log(logs);
       if(logs.length != 0){
         buildModalOverlay();
         $.each(logs, function(index, log){
