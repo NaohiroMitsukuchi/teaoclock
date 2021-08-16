@@ -95,5 +95,10 @@ $(document).on('turbolinks:load', function(){
       alert('error');
     });
   });
+// バリデーションエラー時にフォームを出現
+  const status = $('.ValidationStatus').text();
+  if(status == 'true'){
+    $('#DropConditionForm__registration').css('display', 'block');
+  }; 
 });
 

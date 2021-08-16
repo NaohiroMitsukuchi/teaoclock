@@ -86,9 +86,10 @@
       }
     }
   }
-
-  .FormArea{
+  #DropConditionForm__registration{
     display: none;
+  }
+  .FormArea{
     position: absolute;
     top: 100px;
     left: 25%;
@@ -129,6 +130,11 @@
         width: 50%;
         text-align: center;
         right: 5px;
+        @include flex_box(center, center);
+        span{
+          font-size: 14px;
+          color: red;
+        }
       }
       &__detail{
         width: 30%;
@@ -172,6 +178,13 @@
           opacity: 0.8;
         }
       }
+    }
+    .FormItem__error_message{
+      color: #da3c41;
+      text-align: end;
+    }
+    .ValidationStatus{
+      display: none;
     }
   }
 }

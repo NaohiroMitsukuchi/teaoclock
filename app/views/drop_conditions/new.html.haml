@@ -53,7 +53,7 @@
         .BtnStyle__icon= icon("fas ", "hourglass-start")
         .BtnStyle__text reset
 
-  .FormArea
+  .FormArea#DropConditionForm__registration
     .FormArea__title
       .removeBtn= icon("fas", "times")
       %h2 ログに登録
@@ -63,6 +63,8 @@
         %dl
           %dt.FormItem__label
             = f.label :time, "蒸らし時間"
+            - if @drop_condition.errors.include?(:time)
+              %span [必須]
           %dd.FormItem__detail
             = f.text_field :time, {id: "form_time"}
             %span 秒
@@ -70,20 +72,26 @@
         %dl
           %dt.FormItem__label
             = f.label :water_quantity, "湯量"
+            - if @drop_condition.errors.include?(:water_quantity)
+              %span [必須]
           %dd.FormItem__detail
             = f.text_field :water_quantity, {id: "form_water_quantity"}
-            %span 秒
+            %span ml
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :leaf_quantity, "茶葉量"
+            - if @drop_condition.errors.include?(:leaf_quantity)
+              %span [必須]
           %dd.FormItem__detail
             = f.text_field :leaf_quantity, {id: "form_leaf_quantity"}
-            %span 秒
+            %span g
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :number_of_people, "人数"
+            - if @drop_condition.errors.include?(:number_of_people)
+              %span [必須]
           %dd.FormItem__detail
             = f.text_field :number_of_people, {id: "form_number_of_people"}
             %span 人
@@ -91,6 +99,8 @@
         %dl
           %dt.FormItem__label
             = f.label :tea_type_id, "飲み方"
+            - if @drop_condition.errors.include?(:tea_type_id)
+              %span [必須]
           %dd.FormItem__detail
             = f.collection_select(:tea_type_id, @tea_types, :id, :name, {prompt: "選択してください"}, {id: "form_tea_type"})
       .FormItem
@@ -113,3 +123,7 @@
         %p.FormItem__btn
           = f.submit "登録"
 
+    - if @drop_condition.errors.any? == true
+      .ValidationStatus true
+    - else
+      .ValidationStatus false
