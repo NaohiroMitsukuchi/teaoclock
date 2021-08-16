@@ -17,6 +17,7 @@ class MyTeasController < ApplicationController
     if @my_tea.save
       redirect_to my_teas_path
     else 
+      @my_tea.my_tea_images.new
       render :new
     end
   end

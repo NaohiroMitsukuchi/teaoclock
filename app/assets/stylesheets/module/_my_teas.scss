@@ -238,7 +238,7 @@
     .FormItem {
       position: relative;
       width: 100%;
-      margin: 25px auto;
+      margin: 25px auto 0;
       &__detail{
         font: 15px/24px sans-serif;
         width: 100%;
@@ -309,6 +309,11 @@
     #MyTeaDeleteBtn:hover{
       opacity: 0.8;
       font-size: 17px;
+    }
+    .FormItem__error_message{
+      font-size: 14px;
+      color: #f16161;
+      margin-top: 5px;
     }
   }
 }
