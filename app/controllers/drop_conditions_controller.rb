@@ -34,7 +34,7 @@ class DropConditionsController < ApplicationController
     if @drop_condition.update(drop_condition_params)
       redirect_to my_teas_path
     else
-      redirect_to :edit
+      render :edit
     end
   end
 

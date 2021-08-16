@@ -1,5 +1,6 @@
 @import "../mixin";
 
+// 登録ページのスタイル
 .DropConditionRegistrationPage{
   padding-top: 100px;
   width: 90%;
@@ -36,7 +37,6 @@
       }
     }
   }
-
   .ConditionResultArea{
     background-color: rgba(206, 130, 54, 0.4);
     padding: 20px 0;
@@ -53,7 +53,6 @@
       }
     }
   }
-
   .StopWatchArea {
     background-color: rgba(206, 130, 54, 0.8);
     border: 1px solid $tea_color;
@@ -179,15 +178,12 @@
         }
       }
     }
-    .FormItem__error_message{
-      color: #da3c41;
-      text-align: end;
-    }
     .ValidationStatus{
       display: none;
     }
   }
 }
+// 編集ページのスタイル
 .DropConditionEditPage{
   .FormArea{
     position: absolute;
@@ -219,6 +215,11 @@
         width: 50%;
         text-align: center;
         right: 5px;
+        @include flex_box(center, center);
+        span{
+          font-size: 14px;
+          color: red;
+        }
       }
       &__detail{
         width: 30%;
