@@ -49,7 +49,7 @@ $(document).on('turbolinks:load', function(){
                 </div>`
     $('.DropConditionLists').append(html);
   };
-  // <a class="MemoArea__label--dropBtn" href="/my_teas/${log.my_tea_id}/drop_conditions/${log.id}/edit">淹れる</a>
+
 // 紅茶ログのモーダルウィンドウオーバーレイを挿入する関数
   const buildModalOverlay = () =>{
     let html = `<div id="modal-overlay"></div>

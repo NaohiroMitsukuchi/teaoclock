@@ -1,9 +1,8 @@
 = render partial: "tops/title_bar"
 
-.hoge
+.DropConditionEditPage
   .FormArea
     .FormArea__title
-      .removeBtn= icon("fas", "times")
       %h2 ログを編集
     = form_with(model: [@my_tea, @drop_condition], local: true) do |f|
       #FormItemBox
@@ -20,14 +19,14 @@
             = f.label :water_quantity, "湯量"
           %dd.FormItem__detail
             = f.text_field :water_quantity, {id: "form_water_quantity"}
-            %span 秒
+            %span ml
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :leaf_quantity, "茶葉量"
           %dd.FormItem__detail
             = f.text_field :leaf_quantity, {id: "form_leaf_quantity"}
-            %span 秒
+            %span g
       .FormItem
         %dl
           %dt.FormItem__label
@@ -46,14 +45,14 @@
           %dt.FormItem__label
             = f.label :temperature, "温度"
           %dd.FormItem__detail
-            = f.text_field :temperature,{value: "100"}
+            = f.text_field :temperature
             %span ℃
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :evalution, "評価(1-10点)"
+            = f.label :evaluation, "評価(1-10点)"
           %dd.FormItem__detail
-            = f.text_field :evalution
+            = f.text_field :evaluation
             %span 点
       .FormItem
         = f.text_field :note,{placeholder: "メモ", class: "FormItem__memo"}

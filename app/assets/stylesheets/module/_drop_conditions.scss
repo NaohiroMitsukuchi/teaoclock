@@ -175,3 +175,80 @@
     }
   }
 }
+.DropConditionEditPage{
+  .FormArea{
+    position: absolute;
+    top: 80px;
+    left: 25%;
+    width: 50%;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 10px;
+    border: 1px solid $tea_color;
+    border-radius: 20px;
+    color: brown;
+    &__title{
+      h2{
+        font-size: 20px;
+        text-align: center;
+        font-weight: 500;
+        margin: 15px;
+      }
+    }
+    .FormItem{
+      margin: 10px auto;
+      font-size: 18px;
+      dl{
+        @include flex_box(top, center);
+      }
+      &__label{
+        margin-bottom: 5px;
+        width: 50%;
+        text-align: center;
+        right: 5px;
+      }
+      &__detail{
+        width: 30%;
+        position: relative;
+        input{
+          padding: 3px;
+          width: 100%;
+          text-align: center;
+        }
+        span{
+          position: absolute;
+          top: 3px;
+          left: 85%;
+        }
+        select{
+          width: 100%;
+          display: block;
+          padding: 3px;
+        }
+      }
+      &__memo{
+        margin: 0 auto;
+        width: 73%;
+        display: block;
+        padding: 5px;
+        height: 40px;
+      }
+      &__btn{
+        @include flex_box(center, center);
+        input{
+          width: 100px;
+          margin: 10px auto;
+          text-align: center;
+          padding: 5px;
+          border: 1px solid brown;
+          border-radius: 5px;
+          background-color: $ivory;
+          color: brown;
+        }
+        input:hover{
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
