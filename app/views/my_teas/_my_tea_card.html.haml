@@ -1,6 +1,7 @@
 .Card
   %h2=  my_tea.product_name
-  = icon("fas", "pencil-alt")
+  = link_to edit_my_tea_path(my_tea.id) do
+    = icon("fas", "pencil-alt")
   .Card__detail
     - if my_tea.my_tea_images.length != 0 
       = image_tag "#{my_tea.my_tea_images.first.url}", alt: 'My紅茶', height: '140', width: '140', class: 'Card__detail--image'
@@ -24,6 +25,5 @@
         %dd= my_tea.flavor
 
   .Card__btn
-    .Card__btn--text.my_tea_log{data: {index: "#{my_tea_counter}"}} 履歴
+    .Card__btn--text.my_tea_log{data: {index: "#{my_tea.id}"}} 履歴
     = link_to "淹れる", new_my_tea_drop_condition_path(my_tea.id),{class: "Card__btn--text"}
-  

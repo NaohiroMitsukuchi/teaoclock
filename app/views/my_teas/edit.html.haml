@@ -17,7 +17,7 @@
             - if @my_tea.persisted?
               = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
           - if @my_tea.persisted?
-            %label.FileWrapper{data: {index: i.index}}
+            %label.FileWrapper{data: {index: @my_tea.my_tea_images.count}}
               = icon("fas", "camera-retro")
               = file_field_tag :url, name: "my_tea[my_tea_images_attributes][#{@my_tea.my_tea_images.count}][url]", class: 'FileWrapper__uploader'
 
@@ -37,4 +37,5 @@
         = f.text_field :flavor, {class: "FormItem__detail", placeholder: "フレーバー"}
         = icon("far", "lemon")
       %p.FormItem__btn
-        = f.submit "登録する"
+        = f.submit "変更する"
+    = link_to "削除する", my_tea_path, id: "MyTeaDeleteBtn", method: :delete

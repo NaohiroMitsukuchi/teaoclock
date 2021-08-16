@@ -8,4 +8,5 @@ json.array! @drop_condition_logs do |drop_condition_log|
   json.temperature drop_condition_log.temperature
   json.evaluation drop_condition_log.evaluation
   json.note drop_condition_log.note
+  json.my_tea_id @my_tea_id
 end

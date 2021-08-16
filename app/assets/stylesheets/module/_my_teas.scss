@@ -36,13 +36,13 @@
           width: 100%;
           border-bottom: 1px dotted $tea_color;
         }
-        & > i{
+        & .fa-pencil-alt{
           position: absolute;
           color: #9c9c9c;
           right: 15px;
           top: 10px;
         }
-        & > i:hover{
+        & .fa-pencil-alt:hover{
           color: #333;
         }
         &__detail{
@@ -206,18 +206,33 @@
     margin: 0 auto;
     .FormImage{
       @include flex_box(center, center);
-      .FileWrapper__uploader{
-        display: none;
-      }
-      .fa-camera-retro{
-        @include w_h(140px, 140px);
-        border: 1px solid #aaa;
-        font-size: 50px;
-        line-height: 140px;
-        text-align: center;
-        color: #333;
-        border-radius: 5px;
-        cursor: pointer;
+      #Previews{
+        @include flex_box(space-around, center);
+        flex-wrap: wrap;
+        .FileWrapper__uploader{
+          display: none;
+        }
+        .fa-camera-retro{
+          @include w_h(140px, 140px);
+          border: 1px solid #aaa;
+          font-size: 50px;
+          line-height: 140px;
+          text-align: center;
+          color: #333;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .Preview{
+          position: relative;
+          margin: 5px;
+          &__removeBtn{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            color: #f16161;
+            background-color: #fff;
+          }
+        }
       }
     }
     .FormItem {
@@ -282,6 +297,18 @@
       border-width: 0 1px 1px 1px;
       border-style: solid;
       border-color: #da3c41;
+    }
+    #MyTeaDeleteBtn{
+      display: block;
+      text-decoration: none;
+      color: #f16161;
+      font-size: 15px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    #MyTeaDeleteBtn:hover{
+      opacity: 0.8;
+      font-size: 17px;
     }
   }
 }
@@ -374,11 +401,16 @@
         i {
           font-size: 40px;
           transform: scaleX(-1);
+          margin-left: 13px;
         }
-        a{
+        &--editBtn{
+          text-decoration: none;
+          color: $tea_color;
+        }
+        &--btn{
           display: block;
           padding: 10px;
-          margin: 0 20px;
+          margin-left: 13px;
           border: 1px solid #fff;
           background-color: $tea_color;
           font-size: 20px;

@@ -1,0 +1,40 @@
+= render partial: "tops/title_bar"
+.DropConditionRegistrationPage
+  .ConditionSelectArea
+    .ConditionSelectArea__number
+      .ConditionSelectArea__number--icon= icon("fas", "users")
+      .ConditionSelectArea__selectBox= @drop_condition.number_of_people
+      人
+    .ConditionSelectArea__teaType
+      .ConditionSelectArea__teaType--icon= icon("fas", "coffee")
+      .ConditionSelectArea__selectBox= @tea_type
+
+  .ConditionResultArea
+    .ConditionResultArea__result
+      .ConditionResultArea__result--label 必要な湯量
+      .ConditionResultArea__result--arrow= icon("fas", "arrow-right")
+      .ConditionResultArea__result--text
+        %span#water_quantity= @drop_condition.water_quantity
+        ml
+    .ConditionResultArea__result
+      .ConditionResultArea__result--label 茶葉の重さ
+      .ConditionResultArea__result--arrow= icon("fas", "arrow-right")
+      .ConditionResultArea__result--text
+        %span#leaf_quantity= @drop_condition.leaf_quantity
+        g
+  .StopWatchArea
+    %h2 蒸らし時間
+    .CountDownArea
+      #CountDownArea__reduceTime= icon("fas", "caret-left")
+      - if @my_tea.leaf_type_id == 1 
+        .CountDownArea__timer= @drop_condition.time
+      - else 
+        .CountDownArea__timer= @drop_condition.time
+      #CountDownArea__increaseTime= icon("fas", "caret-right")
+    .ButtonArea
+      .ButtonArea__start.BtnStyle
+        .BtnStyle__icon= icon("far", "play-circle")
+        .BtnStyle__text start
+      .ButtonArea__reset.BtnStyle
+        .BtnStyle__icon= icon("fas ", "hourglass-start")
+        .BtnStyle__text reset
