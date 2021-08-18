@@ -1,6 +1,8 @@
 = render partial: "tops/title_bar"
 
 .DropConditionRegistrationPage
+  = link_to :back,{class: "DropConditionRegistrationPage__back"} do
+    = icon("fas", "chevron-circle-left")
   .ConditionSelectArea
     .ConditionSelectArea__number
       .ConditionSelectArea__number--icon= icon("fas", "users")

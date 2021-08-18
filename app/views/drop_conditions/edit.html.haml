@@ -4,6 +4,8 @@
   .FormArea
     .FormArea__title
       %h2 ログを編集
+      = link_to :back, {class: "FormArea__title--back"} do
+        = icon("fas", "chevron-circle-left")
     = form_with(model: [@my_tea, @drop_condition], local: true) do |f|
       #FormItemBox
       .FormItem

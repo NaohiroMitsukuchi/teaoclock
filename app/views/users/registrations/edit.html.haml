@@ -18,21 +18,21 @@
               = f.label :email
             %dd.FormItem__detail
               = f.email_field :email, autofocus: true, autocomplete: "email"
-        .FormItem
-          %dl
-            %dt.FormItem__label
-              = f.label :password,"新しいパスワード"
-              - if @minimum_password_length
-                %em
-                  (#{@minimum_password_length} 文字以上)
-            %dd.FormItem__detail
-              = f.password_field :password, autocomplete: "new-password", placeholder: '半角英数字'
-        .FormItem
-          %dl
-            %dt.FormItem__label
-              = f.label :password_confirmation,"パスワード再確認"
-            %dd.FormItem__detail
-              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '半角英数字'
+        -# .FormItem
+        -#   %dl
+        -#     %dt.FormItem__label
+        -#       = f.label :password,"新しいパスワード"
+        -#       - if @minimum_password_length
+        -#         %em
+        -#           (#{@minimum_password_length} 文字以上)
+        -#     %dd.FormItem__detail
+        -#       = f.password_field :password, autocomplete: "new-password", placeholder: '半角英数字'
+        -# .FormItem
+        -#   %dl
+        -#     %dt.FormItem__label
+        -#       = f.label :password_confirmation,"パスワード再確認"
+        -#     %dd.FormItem__detail
+        -#       = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '半角英数字'
         .FormItem
           %dl
             %dt.FormItem__label
