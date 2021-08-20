@@ -20,6 +20,21 @@
       border-bottom: 2px solid brown;
       margin-bottom: 10px;
     }
+    &__btn{
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      line-height: 50px;
+      font-size: 14px;
+      background-color: $tea_color;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+      color: #fff;
+    }
+    &__btn:hover{
+      opacity: 0.8;
+    }
     .MyTeaCards{
       @include flex_box(space-around, top);
       flex-wrap: wrap;

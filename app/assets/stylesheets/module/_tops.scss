@@ -1,5 +1,14 @@
 @import "../mixin";
-
+.notifications{
+  color: #fff;
+  text-align: center;
+  .notice{
+    background-color: $tea_color;
+  }
+  .alert{
+    background-color: #f16161;
+  }
+}
 .Balloon{
   position: fixed;
   top: 50px;
@@ -61,6 +70,7 @@
     right: 0px;
     padding: 0 15px;
     &--btn{
+      color: #333;
       text-decoration: none;
       padding: 0 10px;
     }

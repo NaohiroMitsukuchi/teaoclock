@@ -1,4 +1,7 @@
 class DropConditionsController < ApplicationController
+  before_action :move_to_root, only: [:new, :edit, :drop]
+  before_action :correct_user, only: [:new, :destroy, :edit, :update, :drop]
+
 
   def new
     @my_tea = MyTea.find(params[:my_tea_id])
@@ -13,7 +16,7 @@ class DropConditionsController < ApplicationController
     @leaf_types = LeafType.all
     @tea_types = TeaType.all
     if @drop_condition.save
-      redirect_to my_teas_path
+      redirect_to my_teas_path, notice: "ログに登録しました"
     else
       render :new
     end
@@ -32,7 +35,7 @@ class DropConditionsController < ApplicationController
     @leaf_types = LeafType.all
     @tea_types = TeaType.all
     if @drop_condition.update(drop_condition_params)
-      redirect_to my_teas_path
+      redirect_to my_teas_path, notice: "ログを編集しました"
     else
       render :edit
     end
@@ -41,7 +44,7 @@ class DropConditionsController < ApplicationController
   def destroy
     @drop_condition = DropCondition.find(params[:id])
     if @drop_condition.destroy
-      redirect_to my_teas_path
+      redirect_to my_teas_path, notice: "ログを削除しました"
     else
       redirect_to my_teas_path
     end
@@ -56,6 +59,15 @@ class DropConditionsController < ApplicationController
   private
   def drop_condition_params
     params.require(:drop_condition).permit(:time, :water_quantity, :leaf_quantity, :tea_type_id, :number_of_people, :temperature, :note, :evaluation).merge(my_tea_id: params[:my_tea_id])
+  end
+
+  def move_to_root
+    redirect_to(root_path) unless user_signed_in?
+  end
+
+  def correct_user
+    user = MyTea.find(params[:my_tea_id]).user
+    redirect_to(root_path) unless user == current_user
   end
 end
 
