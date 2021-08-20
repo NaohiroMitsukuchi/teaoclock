@@ -130,4 +130,9 @@ $(document).on('turbolinks:load', function(){
   $('.removeBtn').on('click', function(){
     $('.FormArea').css("display", "none");
   });
+
+  // フォーム出現ボタンクリック時
+  $('#FormShowBtn').on('click', function(){
+    showForm();
+  });
 });

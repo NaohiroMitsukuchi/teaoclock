@@ -2,20 +2,27 @@ $(document).on('turbolinks:load', function(){
 // 紅茶ログを挿入する関数
   const buildDropConditionLogs = (log) => {
     const tea_type = ["ストレート","アイス","ミルク","ソーダ"];
+    let evaluation = log.evaluation 
+    let star;
+    if(evaluation == 0){
+      star = `<i class="far fa-star"></i>`
+    }else{
+      iconHtml = `<i class="fas fa-star"></i>`
+      star = iconHtml.repeat(evaluation);
+    };
     let html = `<div class="ListWrapper">
                   <i class="far fa-circle"></i>
+                  <div class="evaluationArea">
+                    ${star}
+                  </div>
                   <div class="List">
-                    <dl class="List__evaluation">
-                      <dd class="List__label List__evaluation--label"><i class="fas fa-star"></i></dd>
-                      <dt class="List__detail List__evaluation--detail">${log.evaluation}</dt>
-                    </dl>
                     <dl>
                       <dt class="List__label"><i class="fas fa-hourglass-start"></i></dt>
                       <dd class="List__detail">${log.time} 秒</dd>
                     </dl>
                     <dl>
                       <dt class="List__label"><i class="fas fa-tint"></i></dt>
-                      <dd class="List__detail">${log.water_quantity}ml</dd>
+                      <dd class="List__detail">${log.water_quantity} ml</dd>
                     </dl>
                     <dl>
                       <dt class="List__label"><i class="fab fa-envira"></i></dt>
@@ -95,5 +102,11 @@ $(document).on('turbolinks:load', function(){
       alert('error');
     });
   });
+// バリデーションエラー時にフォームを出現
+  const status = $('.ValidationStatus').text();
+  if(status == 'true'){
+    $('#DropConditionForm__registration').css('display', 'block');
+  }; 
 });
+
 

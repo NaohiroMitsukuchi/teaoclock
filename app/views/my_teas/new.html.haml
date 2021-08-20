@@ -24,12 +24,16 @@
       .FormItem
         = f.text_field :product_name, {class: "FormItem__detail", placeholder: "商品名 [必須]"}
         = icon("fab", "envira")
+      - if @my_tea.errors.include?(:product_name)
+        .FormItem__error_message 商品名を入力してください
       .FormItem
         = f.text_field :campany, {class: "FormItem__detail", placeholder: "会社名"}
         = icon("far", "building")
       .FormItem
         = f.collection_select(:leaf_type_id, LeafType.all, :id, :name, {prompt: "茶葉の種類を選択 [必須]"}, {class: "FormItem__detail"})
         = icon("far", "hand-pointer")
+      - if @my_tea.errors.include?(:leaf_type_id)
+        .FormItem__error_message 茶葉の種類を選択を入力してください
       .FormItem
         = f.text_field :origin, {class: "FormItem__detail", placeholder: "産地"}
         = icon("fas", "globe-europe")

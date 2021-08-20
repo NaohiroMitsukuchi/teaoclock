@@ -3,6 +3,8 @@
   = render partial: "side_nav"
   .MyTeasArea
     %h1 My紅茶
+    - if @my_teas.length == 0
+      = link_to "紅茶を登録してください", new_my_tea_path, class: "MyTeasArea__btn" 
     .MyTeaCards
       = render partial: "my_tea_card", collection: @my_teas, as: "my_tea"
 

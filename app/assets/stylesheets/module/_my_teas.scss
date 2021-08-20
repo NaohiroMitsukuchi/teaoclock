@@ -20,6 +20,21 @@
       border-bottom: 2px solid brown;
       margin-bottom: 10px;
     }
+    &__btn{
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      line-height: 50px;
+      font-size: 14px;
+      background-color: $tea_color;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+      color: #fff;
+    }
+    &__btn:hover{
+      opacity: 0.8;
+    }
     .MyTeaCards{
       @include flex_box(space-around, top);
       flex-wrap: wrap;
@@ -238,7 +253,7 @@
     .FormItem {
       position: relative;
       width: 100%;
-      margin: 25px auto;
+      margin: 25px auto 0;
       &__detail{
         font: 15px/24px sans-serif;
         width: 100%;
@@ -310,6 +325,11 @@
       opacity: 0.8;
       font-size: 17px;
     }
+    .FormItem__error_message{
+      font-size: 14px;
+      color: #f16161;
+      margin-top: 5px;
+    }
   }
 }
 // マイページ紅茶履歴
@@ -337,6 +357,7 @@
     opacity: 0.8;
   }
   .ListWrapper{
+    background-color: $ivory;
     padding: 10px;
     border: 3px solid brown;
     border-radius: 0 50px 50px 0;
@@ -348,6 +369,15 @@
       left: 5px;
       color: $tea_color;
       font-size: 17px;
+    }
+    .evaluationArea{
+      margin-left: 30px;
+      margin-bottom: 5px;
+      i{
+        color: $tea_color;
+        font-size: 20px;
+        
+      }
     }
     .List{
       @include flex_box(top, top);
