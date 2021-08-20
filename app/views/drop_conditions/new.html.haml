@@ -54,6 +54,11 @@
       .ButtonArea__reset.BtnStyle
         .BtnStyle__icon= icon("fas ", "hourglass-start")
         .BtnStyle__text reset
+    
+  #FormShowBtn 
+    登録フォームを表示する
+    %br
+    %span (タイマー終了時に自動的に出現します)
 
   .FormArea#DropConditionForm__registration
     .FormArea__title
@@ -115,7 +120,7 @@
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :evaluation, "評価(1-10点)"
+            = f.label :evaluation, "評価(1-5点)"
           %dd.FormItem__detail
             = f.text_field :evaluation
             %span 点

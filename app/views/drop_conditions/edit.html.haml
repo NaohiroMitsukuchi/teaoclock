@@ -13,7 +13,7 @@
           %dt.FormItem__label
             = f.label :time, "蒸らし時間"
             - if @drop_condition.errors.include?(:time)
-              %span [必須]
+              %span 不適切な値です
           %dd.FormItem__detail
             = f.text_field :time, {id: "form_time"}
             %span 秒
@@ -22,7 +22,7 @@
           %dt.FormItem__label
             = f.label :water_quantity, "湯量"
             - if @drop_condition.errors.include?(:water_quantity)
-              %span [必須]
+              %span 不適切な値です
           %dd.FormItem__detail
             = f.text_field :water_quantity, {id: "form_water_quantity"}
             %span ml
@@ -31,7 +31,7 @@
           %dt.FormItem__label
             = f.label :leaf_quantity, "茶葉量"
             - if @drop_condition.errors.include?(:leaf_quantity)
-              %span [必須]
+              %span 不適切な値です
           %dd.FormItem__detail
             = f.text_field :leaf_quantity, {id: "form_leaf_quantity"}
             %span g
@@ -40,7 +40,7 @@
           %dt.FormItem__label
             = f.label :number_of_people, "人数"
             - if @drop_condition.errors.include?(:number_of_people)
-              %span [必須]
+              %span 不適切な値です
           %dd.FormItem__detail
             = f.text_field :number_of_people, {id: "form_number_of_people"}
             %span 人
@@ -49,20 +49,24 @@
           %dt.FormItem__label
             = f.label :tea_type_id, "飲み方"
             - if @drop_condition.errors.include?(:tea_type_id)
-              %span [必須]
+              %span 不適切な値です
           %dd.FormItem__detail
             = f.collection_select(:tea_type_id, @tea_types, :id, :name, {prompt: "選択してください"}, {id: "form_tea_type"})
       .FormItem
         %dl
           %dt.FormItem__label
             = f.label :temperature, "温度"
+            - if @drop_condition.errors.include?(:temperature)
+              %span 不適切な値です
           %dd.FormItem__detail
             = f.text_field :temperature
             %span ℃
       .FormItem
         %dl
           %dt.FormItem__label
-            = f.label :evaluation, "評価(1-10点)"
+            = f.label :evaluation, "評価(1-5点)"
+            - if @drop_condition.errors.include?(:evaluation)
+              %span 不適切な値です
           %dd.FormItem__detail
             = f.text_field :evaluation
             %span 点
