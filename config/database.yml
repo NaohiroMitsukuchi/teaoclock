@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: teaoclock_production
-  username: teaoclock
-  password: <%= ENV['TEAOCLOCK_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
