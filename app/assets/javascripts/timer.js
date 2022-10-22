@@ -65,7 +65,6 @@ $(document).on('turbolinks:load', function(){
     leafQuantity = 2.5
     numberOfPeople = 0
     teaTypeIndex = 0
-    multipleRatio = 1
     $('#number_of_people_select').val(0);
     $('#tea_type_select').val(null);
     $("#water_quantity").html(waterQuantity);
